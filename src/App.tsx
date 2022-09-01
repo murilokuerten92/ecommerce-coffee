@@ -1,14 +1,14 @@
-import { useState } from 'react'
-
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from './global';
+import { defaultTheme } from './styles';
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
 
