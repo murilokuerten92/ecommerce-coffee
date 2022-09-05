@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-
+export const Container = styled.main`
+   padding: 0 10rem;
 `
