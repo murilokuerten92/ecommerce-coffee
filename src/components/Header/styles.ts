@@ -7,22 +7,22 @@ export const Container = styled.header`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 export const CoffeeLogo = styled(Icon).attrs({
-    icon: 'logo'
+  icon: 'logo'
 })`
 
 `;
 
 export const CartLogo = styled(Icon).attrs({
-    icon: 'cart'
+  icon: 'cart'
 })`
 
 `;
 
 export const PinLogo = styled(Icon).attrs({
-    icon: 'pin'
+  icon: 'pin'
 })`
 
 `;
