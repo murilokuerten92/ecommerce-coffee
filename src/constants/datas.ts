@@ -1,6 +1,6 @@
 export const faqs = [{
     id: 1,
-    icon: 'cart',
+    icon: 'cartHome',
     description: 'Compra simples e segura.',
     color: '#C47F17'
 }, {
