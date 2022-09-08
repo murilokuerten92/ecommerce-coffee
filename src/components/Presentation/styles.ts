@@ -12,6 +12,12 @@ export const Container = styled.main`
   align-items: center;
   margin-top: 3rem;
   column-gap: 4.5rem;
+  @media (max-width: 960px) {
+    margin-top: 0rem;
+    column-gap: 0rem;
+    flex-direction: column;
+    align-items:center;
+ }
 `;
 
 export const InfoSection = styled.section`
@@ -24,6 +30,12 @@ export const Title = styled.h1`
   font-family: 'baloo 2';
   color: ${({ theme }) => theme.text_bold};
   line-height: 4rem;
+
+  @media (max-width: 960px) {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: center;
+ }
 `
 
 export const SubTitle = styled.h2`
@@ -32,6 +44,13 @@ export const SubTitle = styled.h2`
   font-family: 'Roboto';
   line-height: 1.6rem;
   margin-top: 1rem;
+
+  @media (max-width: 960px) {
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    padding: 0 2rem;
+ }
 `;
 
 export const Faq = styled.div`
@@ -41,6 +60,12 @@ export const Faq = styled.div`
   gap: 1.6rem;
   column-gap: 3rem;
   margin-top: 3rem;
+
+  @media (max-width: 460px) {
+     grid-template-columns: 1fr;
+     margin-top: 2rem;
+     align-self: center;
+ }
 `;
 
 export const FaqColumn = styled.div`
@@ -76,7 +101,9 @@ export const InfoImage = styled.section`
 
 export const CoffeeLogo = styled.img`
 
-
+ @media (max-width: 960px) {
+    display: none
+ }
 `
 
 export const FaqIcon = styled(Icon).attrs<IconProps>(props => ({
