@@ -8,7 +8,9 @@ export const defaultTheme = {
     'text_accent': '#574F4D',
 
     'primary_text': '#403937',
+    'text_light': '#8D8686',
     'text_bold': '#272221',
+    'base_card': '#F3F2F2',
     'background': '#FAFAFA',
     'shape': '#FFFFFF',
 }

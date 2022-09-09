@@ -1,6 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.main`
-  width: 100%;
+
+
+ .CoffeeTitle {
+  margin-top: 4rem;
+ } 
+
+`;
+
+
+export const SectionCards = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  margin-top: 3rem;
 `;
 
