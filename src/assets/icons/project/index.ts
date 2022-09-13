@@ -5,6 +5,8 @@ import time from './time'
 import cartHome from './cartHome'
 import box from './box'
 import coffee from './coffee'
+import add from './add'
+import remove from './remove'
 
 const icons = {
   logo,
@@ -13,7 +15,9 @@ const icons = {
   time,
   cartHome,
   box,
-  coffee
+  coffee,
+  add,
+  remove
 }
 
 export default icons

@@ -12,5 +12,6 @@ export const defaultTheme = {
     'text_bold': '#272221',
     'base_card': '#F3F2F2',
     'background': '#FAFAFA',
+    'background_count': '#E6E5E5',
     'shape': '#FFFFFF',
 }
