@@ -10,13 +10,13 @@ export function CardCoffee({ ...coffee }: coffeeType) {
             <S.CardContent key={coffee.id}>
                 <S.CoffeeImage src={coffee.img} alt='name coffee' />
                 <S.Tags>
-                    <S.TagsCoffeeType>
-                        {coffee.types.map(type => (
-                            <span key={type.id} className='coffee_type'>
+                    {coffee.types.map(type => (
+                        <S.TagsCoffeeType key={type.id} >
+                            <span className='coffee_type'>
                                 {type.name}
                             </span>
-                        ))}
-                    </S.TagsCoffeeType>
+                        </S.TagsCoffeeType>
+                    ))}
                 </S.Tags>
                 <S.Title>
                     {coffee.name}
