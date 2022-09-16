@@ -6,96 +6,49 @@ import { coffeeType } from '@/@types/mockes';
 export function CardCoffee({ ...coffee }: coffeeType) {
 
     return (
-        <>
-            <S.Card>
-
-                <S.CardContent>
-                    <S.CoffeeImage src={normalCoffee} alt='name coffee' />
-                    <S.Tags>
-                        <S.TagsCoffeeType>
-                            <span className='coffee_type'>
-                                TRADICIONAL
-                            </span>
-                        </S.TagsCoffeeType>
-                        <S.TagsCoffeeType>
-                            <span className='coffee_type'>
-                                COM LEITE
-                            </span>
-                        </S.TagsCoffeeType>
-                    </S.Tags>
-                    <S.Title>
-                        Expresso Tradicional
-                    </S.Title>
-                    <S.SubTitle>
-                        O tradicional café feito com água quente e grãos moídos
-                    </S.SubTitle>
-                    <S.Footer>
-                        <section>
-                            <span className='currencySymbol'>
-                                R$
-                            </span>
-                            <strong className='currencyValue'>
-                                9,90
-                            </strong>
-                        </section>
-                        <section className='countSum'>
-                            <S.CountBox>
-                                <button className='count'>
-                                    <S.RemoveIcon />
-                                </button>
-                                <span className='countText'>
-                                    1
-                                </span>
-                                <button className='count'>
-                                    <S.AddIcon />
-                                </button>
-                            </S.CountBox>
-
-                            <S.CartBox>
-                                <S.CartIcon icon='cartHome' />
-                            </S.CartBox>
-                        </section>
-                    </S.Footer>
-                </S.CardContent>
-            </S.Card>
-            <S.Card>
-                <S.CardContent>
-                    <S.CoffeeImage src={normalCoffee} alt='name coffee' />
+        <S.Card>
+            <S.CardContent key={coffee.id}>
+                <S.CoffeeImage src={coffee.img} alt='name coffee' />
+                <S.Tags>
                     <S.TagsCoffeeType>
-                        <span className='coffee_type'>
-
-                        </span>
+                        {coffee.types.map(type => (
+                            <span key={type.id} className='coffee_type'>
+                                {type.name}
+                            </span>
+                        ))}
                     </S.TagsCoffeeType>
-                    <S.Title>
-
-                    </S.Title>
-                    <S.SubTitle>
-
-                    </S.SubTitle>
-                    <S.Footer>
-                        <span className='currecySymbol'>
-
-                        </span>
+                </S.Tags>
+                <S.Title>
+                    {coffee.name}
+                </S.Title>
+                <S.SubTitle>
+                    {coffee.description}
+                </S.SubTitle>
+                <S.Footer>
+                    <section>
                         <strong className='currencyValue'>
-
+                            {coffee.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
                         </strong>
+                    </section>
+                    <section className='countSum'>
                         <S.CountBox>
                             <button className='count'>
-
+                                <S.RemoveIcon />
                             </button>
                             <span className='countText'>
-
+                                1
                             </span>
                             <button className='count'>
-
+                                <S.AddIcon />
                             </button>
                         </S.CountBox>
+
                         <S.CartBox>
                             <S.CartIcon icon='cartHome' />
                         </S.CartBox>
-                    </S.Footer>
-                </S.CardContent>
-            </S.Card>
-        </>
+                    </section>
+                </S.Footer>
+            </S.CardContent>
+        </S.Card>
     )
 }

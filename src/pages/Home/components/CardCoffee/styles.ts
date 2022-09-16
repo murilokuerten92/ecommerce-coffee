@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import { Icon } from '@/icon/icon';
 
 type IconProps = {
-    icon: string;
+  icon: string;
 }
 
 export const Card = styled.div`
    background-color: ${({ theme }) => theme.base_card};
    border-radius: 6px 36px;
-
    max-width: 256px;
 `;
 
@@ -33,6 +32,7 @@ export const TagsCoffeeType = styled.header`
     font-weight: bold;
     font-size: 0.7rem;
     padding: 4px 8px;
+    text-transform: uppercase;
   }
 `;
 
@@ -116,19 +116,19 @@ export const Footer = styled.footer`
 `;
 
 export const CartIcon = styled(Icon).attrs<IconProps>(props => ({
-    icon: props.icon ?? null
+  icon: props.icon ?? null
 }))`
   
   `;
 
 export const AddIcon = styled(Icon).attrs(({
-    icon: 'add'
+  icon: 'add'
 }))`
   
   `;
 
 export const RemoveIcon = styled(Icon).attrs(({
-    icon: 'remove'
+  icon: 'remove'
 }))`
   
   `;
