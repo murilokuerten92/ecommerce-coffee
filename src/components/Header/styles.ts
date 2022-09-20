@@ -48,6 +48,10 @@ export const Cart = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  cursor: pointer;
+
+
 `
 
 export const LocationText = styled.span`

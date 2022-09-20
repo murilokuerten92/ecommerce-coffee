@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 import { Home } from '@/pages/Home'
+import { Resume } from '@/pages/Checkout/Resume'
 
 function CustomRoute({ isPrivate, ...rest }: any) {
   /* const authenticated = true;
@@ -21,6 +22,7 @@ export function Router() {
     <Routes>
       <Route path="/" element={<CustomRoute />}>
         <Route path="/" element={<Home />} />
+        <Route path="/checkout" element={<Resume />} />
       </Route>
     </Routes>
   )

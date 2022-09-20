@@ -1,6 +1,9 @@
-import * as S from './styles'
+import * as S from './styles';
+import { useNavigate } from 'react-router-dom';
 
 export function Header() {
+
+    const navigate = useNavigate();
 
     return (
         <S.Container>
@@ -12,7 +15,7 @@ export function Header() {
                         Porto Alegre, RS
                     </S.LocationText>
                 </S.Location>
-                <S.Cart>
+                <S.Cart onClick={() => navigate('/checkout')}>
                     <S.CartLogo />
                 </S.Cart>
             </S.UserSection>
