@@ -15,6 +15,11 @@ export const AddressContent = styled.div`
   padding: 40px;
 `;
 
+export const AddressTitle = styled.header`
+  display: flex;
+  column-gap: .5rem;
+`;
+
 export const Title = styled.h1`
   color: ${({ theme }) => theme.text_accent};
   font-size: 1.2rem;
