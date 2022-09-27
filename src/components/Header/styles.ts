@@ -21,9 +21,10 @@ export const CartLogo = styled(Icon).attrs({
 
 `;
 
-export const PinLogo = styled(Icon).attrs({
-  icon: 'pin'
-})`
+export const PinLogo = styled(Icon).attrs(({ theme }) => ({
+  icon: 'pin',
+  color: theme.secondary
+}))`
 
 `;
 

@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import * as S from './styles';
-import normalCoffee from '@/assets/images/normalCoffee.png';
 import { coffeeType } from '@/@types/mockes';
 
 export function CardCoffee({ ...coffee }: coffeeType) {

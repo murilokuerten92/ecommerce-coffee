@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import * as S from './styles';
-import { faqs } from '@/constants/datas';
 import { Presentation } from '@/components/Presentation';
 import { CardCoffee } from './components/CardCoffee';
 import { coffees } from '@/constants/datas';
