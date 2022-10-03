@@ -49,3 +49,5 @@ export const ResumeContent = styled.div`
   background-color: ${({ theme }) => theme.base_card};
   padding: 40px;
 `;
+
+export const AddressInput = styled.input``
