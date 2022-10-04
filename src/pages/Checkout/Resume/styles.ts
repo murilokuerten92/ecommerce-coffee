@@ -13,11 +13,19 @@ export const Address = styled.section`
 export const AddressContent = styled.div`
   background-color: ${({ theme }) => theme.base_card};
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const AddressHeader = styled.header`
+  display: flex;
+  column-gap: .5rem;
+  align-items: center;
 `;
 
 export const AddressTitle = styled.header`
   display: flex;
-  column-gap: .5rem;
+  flex-direction: column;
 `;
 
 export const Title = styled.h1`
@@ -50,4 +58,20 @@ export const ResumeContent = styled.div`
   padding: 40px;
 `;
 
-export const AddressInput = styled.input``
+export const AddressInput = styled.input`
+  background-color: ${({ theme }) => theme.gray_light};
+  border: 1px solid ${({ theme }) => theme.background_count};
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 1rem;
+
+  &:focus {
+    box-shadow: none;
+    border-color:  ${({ theme }) => theme.primary};
+  }
+
+  &::placeholder{
+    color: ${({ theme }) => theme.text_light};
+    font-weight: 400;
+  }
+`

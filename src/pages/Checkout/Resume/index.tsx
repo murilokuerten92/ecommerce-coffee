@@ -11,15 +11,18 @@ export function Resume() {
             <S.Address>
                 <S.Title>Complete seu pedido</S.Title>
                 <S.AddressContent>
-                    <S.AddressTitle>
+                    <S.AddressHeader>
                         <Icon icon='pin' color={theme.primary} />
-                        <S.TitleAddress>
-                            Endereço de Entrega
-                        </S.TitleAddress>
-                    </S.AddressTitle>
-                    <S.ResumeInfo>
-                        Informe o endereço onde deseja receber seu pedido
-                    </S.ResumeInfo>
+                        <S.AddressTitle>
+                            <S.TitleAddress>
+                                Endereço de Entrega
+                            </S.TitleAddress>
+                            <S.ResumeInfo>
+                                Informe o endereço onde deseja receber seu pedido
+                            </S.ResumeInfo>
+                        </S.AddressTitle>
+                    </S.AddressHeader>
+                    <S.AddressInput placeholder='CEP' />
                 </S.AddressContent>
             </S.Address>
             <S.Resume>

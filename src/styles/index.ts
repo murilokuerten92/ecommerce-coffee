@@ -7,6 +7,7 @@ export const defaultTheme = {
     'secondary_dark': '#8047F8',
     'text_accent': '#574F4D',
 
+    'gray_light': '#EEEDED',
     'primary_text': '#403937',
     'text_light': '#8D8686',
     'text_bold': '#272221',
