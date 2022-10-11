@@ -17,6 +17,17 @@ export const AddressContent = styled.div`
   flex-direction: column;
 `;
 
+export const AddressRow = styled.div`
+  display: flex;
+  column-gap: 12px;
+`;
+
+export const AddressForm = styled.div`
+  display: grid;
+  row-gap: 1rem;
+  margin-top: 2rem;
+`;
+
 export const AddressHeader = styled.header`
   display: flex;
   column-gap: .5rem;
@@ -74,4 +85,20 @@ export const AddressInput = styled.input`
     color: ${({ theme }) => theme.text_light};
     font-weight: 400;
   }
+`
+
+export const AddressInputPattern = styled(AddressInput)`
+  width: 14rem;
+`
+
+export const AddressStreet = styled(AddressInput)`
+  flex: 1;
+`
+
+export const AddressState = styled(AddressInput)`
+  width: 3.6rem;
+`
+
+export const AddressCity = styled(AddressInput)`
+  flex: 1;
 `
