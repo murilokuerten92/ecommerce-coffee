@@ -22,7 +22,19 @@ export function Resume() {
                             </S.ResumeInfo>
                         </S.AddressTitle>
                     </S.AddressHeader>
-                    <S.AddressInput placeholder='CEP' />
+                    <S.AddressForm>
+                        <S.AddressInputPattern placeholder='CEP' />
+                        <S.AddressStreet placeholder='Rua' />
+                        <S.AddressRow>
+                            <S.AddressInputPattern placeholder='Número' />
+                            <S.AddressStreet placeholder='Complemento' />
+                        </S.AddressRow>
+                        <S.AddressRow>
+                            <S.AddressInputPattern placeholder='Bairro' />
+                            <S.AddressCity placeholder='Cidade' />
+                            <S.AddressState placeholder='UF' />
+                        </S.AddressRow>
+                    </S.AddressForm>
                 </S.AddressContent>
             </S.Address>
             <S.Resume>
