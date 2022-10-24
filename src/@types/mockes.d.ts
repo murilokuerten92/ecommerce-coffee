@@ -15,3 +15,9 @@ export type coffeeType = {
 export interface coffeeAll {
     coffees: coffeeType[];
 }
+
+export interface PaymentMethods {
+    id: number;
+    description: string;
+    icon: string
+}
