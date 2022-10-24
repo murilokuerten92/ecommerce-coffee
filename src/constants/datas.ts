@@ -206,3 +206,17 @@ export const coffees = [{
     price: 9.90,
     img: irlandes
 }];
+
+export const paymentMethods = [{
+    id: 1,
+    description: 'CARTÃO DE CRÉDITO',
+    icon: 'creditCard'
+}, {
+    id: 2,
+    description: 'CARTÃO DE DÉBITO',
+    icon: 'debitCard'
+}, {
+    id: 3,
+    description: 'DINHEIRO',
+    icon: 'money'
+}];

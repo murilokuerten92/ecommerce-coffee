@@ -7,6 +7,11 @@ import box from './box'
 import coffee from './coffee'
 import add from './add'
 import remove from './remove'
+import dollar from './dollar'
+import pinOutline from './pinOutline'
+import creditCard from './creditCard'
+import debitCard from './debitCard'
+import money from './money'
 
 const icons = {
   logo,
@@ -17,7 +22,12 @@ const icons = {
   box,
   coffee,
   add,
-  remove
+  remove,
+  dollar,
+  pinOutline,
+  creditCard,
+  debitCard,
+  money
 }
 
 export default icons
