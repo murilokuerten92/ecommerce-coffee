@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Icon } from '@/icon/icon';
 
 type Props = {
   active?: boolean
@@ -32,6 +33,105 @@ export const Row = styled.div`
   display: flex;
   column-gap: 12px;
 `;
+
+export const ResumeRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const ResumeColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: .7rem;
+`;
+
+export const ResumeColumnPrice = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: .7rem;
+  align-items: flex-end;
+`;
+
+export const ProductsRow = styled.div`
+  display: flex;
+  column-gap: .6rem;
+  justify-content: space-between;
+
+`;
+
+export const Border = styled.div`
+  width: 100%;
+  border-bottom: 1px solid ${({ theme }) => theme.background_count};
+  margin: 24px 0;
+`;
+
+
+export const ProductsInfoRow = styled.div`
+  display: flex;
+  column-gap: .6rem;
+  row-gap: 1.2rem;
+`;
+
+export const CoffeeImage = styled.img`
+   height: 4rem;
+   width: 4rem;
+`;
+
+export const ProductsColumn = styled.div`
+  display: flex;
+ flex-direction: column;
+ row-gap: .6rem;
+`;
+
+export const ProductPrice = styled.h1`
+  color: ${({ theme }) => theme.text_accent};
+  font-size: 1.2rem;
+  font-family: 'Baloo 2';
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: -5px;
+`;
+
+
+export const ProductTotal = styled.strong`
+  color: ${({ theme }) => theme.primary_text};
+  font-size: 1.2rem;
+  font-family: 'Roboto';
+  font-weight: bold;
+`;
+
+export const CountBox = styled.div`
+   display: flex;
+   align-items: center;
+   column-gap: 0.4rem;
+   padding: 8px;
+   background-color: ${({ theme }) => theme.background_count};
+   border-radius: 6px;
+   .count {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+   }
+
+   .countText{
+     font-weight: 400;
+     color: ${({ theme }) => theme.text_bold};
+     font-size: 1rem;
+   }
+`;
+
+export const AddIcon = styled(Icon).attrs(({
+  icon: 'add'
+}))`
+  
+  `;
+
+export const RemoveIcon = styled(Icon).attrs(({
+  icon: 'remove'
+}))`
+  
+  `;
 
 export const RowPaymentMethods = styled.div`
   display: flex;
@@ -148,3 +248,26 @@ export const AddressState = styled(AddressInput)`
 export const AddressCity = styled(AddressInput)`
   flex: 1;
 `
+
+export const ConfirmButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.shape};
+  background-color: ${({ theme }) => theme.primary};
+  font-size: .8rem;
+  font-family: 'Roboto' ;
+  font-weight: 700;
+  padding: 12px;
+  width: 100%;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+
+  &:hover {
+    filter: brightness(0.8);
+    border: none;
+    transition: 8ms;
+  }
+`;

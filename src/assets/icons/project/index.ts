@@ -12,6 +12,7 @@ import pinOutline from './pinOutline'
 import creditCard from './creditCard'
 import debitCard from './debitCard'
 import money from './money'
+import trash from './trash'
 
 const icons = {
   logo,
@@ -27,7 +28,8 @@ const icons = {
   pinOutline,
   creditCard,
   debitCard,
-  money
+  money,
+  trash
 }
 
 export default icons
