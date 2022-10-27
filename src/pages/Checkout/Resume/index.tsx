@@ -8,9 +8,10 @@ import zod from 'zod'
 import { paymentMethods } from '@/constants/datas'
 import { PaymentMethods } from '@/@types/mockes'
 import arabe from '@/assets/images/arabe.png';
+import { maskCep } from '@/helpers/masks'
 
 const newAddressFormValidationSchema = zod.object({
-    cep: zod.string().min(8, 'Informe o cep'),
+    cep: zod.string().min(7, 'Informe o cep'),
     street: zod.string().min(5, 'Informe o nome da rua'),
     number: zod.number().min(1, 'Informe o número'),
     complement: zod.string().min(1, 'Informe um complemento'),
@@ -19,7 +20,7 @@ const newAddressFormValidationSchema = zod.object({
     uf: zod.string().min(2, 'Informe o estado')
 })
 
-const maskCep = (value: string) => value.replace(/\D/g, "").replace(/^(\d{5})(\d{3})+?$/, "$1-$2")
+type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 
 export function Resume() {
 
@@ -27,16 +28,30 @@ export function Resume() {
 
     const theme = useTheme();
 
-    const { register } = useForm({
-        resolver: zodResolver(newAddressFormValidationSchema)
+    const { register, handleSubmit, formState: { errors } } = useForm<NewAddressFormData>({
+        resolver: zodResolver(newAddressFormValidationSchema),
+        defaultValues: {
+            cep: '',
+            street: '',
+            number: 0,
+            complement: '',
+            district: '',
+            city: '',
+            uf: ''
+        }
     });
 
     function handleChangePaymentMethods(selectedPaymentMethod: string) {
         setPaymentMethodSelected(selectedPaymentMethod)
     }
 
+    function handleCreateNewAddress(data: NewAddressFormData) {
+        console.log(data)
+    }
+    console.log(errors)
+
     return (
-        <S.Container>
+        <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
             <S.PersonalDatas>
                 <S.Title>Complete seu pedido</S.Title>
                 <S.Card>
@@ -66,15 +81,25 @@ export function Resume() {
                                     event.target.value = maskCep(value)
                                 }}
                             />
-                            <S.AddressStreet placeholder='Rua' />
+                            <S.AddressStreet {...register('street', {
+                                required: true
+                            })} placeholder='Rua' />
                             <S.Row>
                                 <S.AddressInputPattern placeholder='Número' {...register('number', { valueAsNumber: true })} />
-                                <S.AddressStreet placeholder='Complemento' />
+                                <S.AddressStreet {...register('complement', {
+                                    required: true
+                                })} placeholder='Complemento' />
                             </S.Row>
                             <S.Row>
-                                <S.AddressInputPattern placeholder='Bairro' />
-                                <S.AddressCity placeholder='Cidade' />
-                                <S.AddressState placeholder='UF' />
+                                <S.AddressInputPattern {...register('district', {
+                                    required: true
+                                })} placeholder='Bairro' />
+                                <S.AddressCity {...register('city', {
+                                    required: true
+                                })} placeholder='Cidade' />
+                                <S.AddressState {...register('uf', {
+                                    required: true
+                                })} maxLength={2} placeholder='UF' />
                             </S.Row>
                         </S.Form>
                     </S.Content>
@@ -139,7 +164,6 @@ export function Resume() {
                         <S.ProductPrice>
                             R$ 9,90
                         </S.ProductPrice>
-
                     </S.ProductsRow>
                     <S.Border />
                     <S.ResumeRow>
@@ -166,11 +190,11 @@ export function Resume() {
                             </S.ProductTotal>
                         </S.ResumeColumnPrice>
                     </S.ResumeRow>
-                    <S.ConfirmButton>
+                    <S.ConfirmButton disabled={paymentMethodSelected === ''} type='submit'>
                         CONFIRMAR PEDIDO
                     </S.ConfirmButton>
                 </S.ResumeContent>
             </S.Resume>
-        </S.Container >
+        </S.Container>
     )
 }

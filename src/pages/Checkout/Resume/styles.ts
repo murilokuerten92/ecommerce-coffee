@@ -3,9 +3,10 @@ import { Icon } from '@/icon/icon';
 
 type Props = {
   active?: boolean
+  disabled?: boolean
 }
 
-export const Container = styled.main`
+export const Container = styled.form`
   display:grid;
   grid-template-columns: 1fr 448px;
   column-gap: 2rem;
@@ -121,17 +122,7 @@ export const CountBox = styled.div`
    }
 `;
 
-export const AddIcon = styled(Icon).attrs(({
-  icon: 'add'
-}))`
-  
-  `;
 
-export const RemoveIcon = styled(Icon).attrs(({
-  icon: 'remove'
-}))`
-  
-  `;
 
 export const RowPaymentMethods = styled.div`
   display: flex;
@@ -249,7 +240,7 @@ export const AddressCity = styled(AddressInput)`
   flex: 1;
 `
 
-export const ConfirmButton = styled.button`
+export const ConfirmButton = styled.button<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -270,4 +261,22 @@ export const ConfirmButton = styled.button`
     border: none;
     transition: 8ms;
   }
+
+  &:disabled {
+    filter: brightness(0.5);
+    cursor: not-allowed;
+  }
 `;
+
+export const RemoveIcon = styled(Icon).attrs(({
+  icon: 'remove'
+}))`
+  
+  `;
+
+export const AddIcon = styled(Icon).attrs(({
+  icon: 'add'
+}))`
+  
+  `;
+
