@@ -9,10 +9,9 @@ export const Container = styled.main`
 `;
 
 export const SectionCards = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 2rem;
-  row-gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
+  gap: 2rem;
   margin-top: 3rem;
 `;
 

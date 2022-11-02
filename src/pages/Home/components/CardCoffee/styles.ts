@@ -8,7 +8,7 @@ type IconProps = {
 export const Card = styled.div`
    background-color: ${({ theme }) => theme.base_card};
    border-radius: 6px 36px;
-   max-width: 256px;
+   width: 100%;
 `;
 
 export const CardContent = styled.section`
@@ -54,7 +54,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h2`
     font-weight: 400;
     font-family: 'Roboto';
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     color: ${({ theme }) => theme.text_light};
     text-align: center;
     margin-top: 8px;
