@@ -115,6 +115,14 @@ export const CountBox = styled.div`
     cursor: pointer;
    }
 
+   button{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: transparent;
+    border: none
+   }
+
    .countText{
      font-weight: 400;
      color: ${({ theme }) => theme.text_bold};

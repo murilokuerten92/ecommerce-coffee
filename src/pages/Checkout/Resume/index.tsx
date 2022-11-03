@@ -13,7 +13,7 @@ import { maskCep } from '@/helpers/masks'
 const newAddressFormValidationSchema = zod.object({
     cep: zod.string().min(7, 'Informe o cep'),
     street: zod.string().min(5, 'Informe o nome da rua'),
-    number: zod.number().min(1, 'Informe o número'),
+    number: zod.string().min(1, 'Informe o número'),
     complement: zod.string().min(1, 'Informe um complemento'),
     district: zod.string().min(2, 'Informe o bairro'),
     city: zod.string().min(5, 'Informe a cidade'),
@@ -33,7 +33,7 @@ export function Resume() {
         defaultValues: {
             cep: '',
             street: '',
-            number: 0,
+            number: '',
             complement: '',
             district: '',
             city: '',
@@ -85,7 +85,7 @@ export function Resume() {
                                 required: true
                             })} placeholder='Rua' />
                             <S.Row>
-                                <S.AddressInputPattern placeholder='Número' {...register('number', { valueAsNumber: true })} />
+                                <S.AddressInputPattern placeholder='Número' {...register('number', { required: true })} />
                                 <S.AddressStreet {...register('complement', {
                                     required: true
                                 })} placeholder='Complemento' />
@@ -153,10 +153,12 @@ export function Resume() {
                                         </button>
                                     </S.CountBox>
                                     <S.CountBox>
-                                        <Icon icon='trash' />
-                                        <S.PaymentMethodTitle>
-                                            REMOVER
-                                        </S.PaymentMethodTitle>
+                                        <button>
+                                            <Icon icon='trash' />
+                                            <S.PaymentMethodTitle>
+                                                REMOVER
+                                            </S.PaymentMethodTitle>
+                                        </button>
                                     </S.CountBox>
                                 </S.ProductsRow>
                             </S.ProductsColumn>
