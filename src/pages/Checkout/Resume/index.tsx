@@ -9,6 +9,7 @@ import { paymentMethods } from '@/constants/datas'
 import { PaymentMethods } from '@/@types/mockes'
 import arabe from '@/assets/images/arabe.png';
 import { maskCep } from '@/helpers/masks'
+import { useNavigate } from 'react-router-dom';
 
 const newAddressFormValidationSchema = zod.object({
     cep: zod.string().min(7, 'Informe o cep'),
@@ -25,6 +26,8 @@ type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 export function Resume() {
 
     const [paymentMethodSelected, setPaymentMethodSelected] = useState('');
+
+    const navigate = useNavigate();
 
     const theme = useTheme();
 
@@ -192,7 +195,7 @@ export function Resume() {
                             </S.ProductTotal>
                         </S.ResumeColumnPrice>
                     </S.ResumeRow>
-                    <S.ConfirmButton disabled={paymentMethodSelected === ''} type='submit'>
+                    <S.ConfirmButton onClick={() => navigate('/success')} disabled={paymentMethodSelected === ''} type='submit'>
                         CONFIRMAR PEDIDO
                     </S.ConfirmButton>
                 </S.ResumeContent>

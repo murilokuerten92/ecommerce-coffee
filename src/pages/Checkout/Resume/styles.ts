@@ -171,7 +171,7 @@ export const HeaderTitle = styled.h2`
 
 export const ResumeInfo = styled.p`
   color: ${({ theme }) => theme.text_accent};
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-family: 'Roboto';
   font-weight: 400;
 `;
