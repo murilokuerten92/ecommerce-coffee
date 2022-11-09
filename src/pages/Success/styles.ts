@@ -3,32 +3,32 @@ import styled from 'styled-components';
 import { Icon } from '@/icon/icon';
 
 type IconProps = {
-    icon: string;
+  icon: string;
 }
 
 export const Container = styled.main`
-
-  display: flex;
-  column-gap: 6rem;
-  justify-content: space-between;
   width: 100%;
-  margin-top: 4rem;
 `;
-
 
 export const Card = styled.div`
    border: 1px solid;
    border-radius: 6px 36px;
-   border-image: linear-gradient(45deg, #DBAC2C, #8047F8) border-box;
+   border-image: linear-gradient(#DBAC2C, #8047F8) 1;
    margin-top: 40px;
+  background-image: linear-gradient(#FAFAFA, #FAFAFA), 
+                    linear-gradient(to right, #DBAC2C, #8047F8);
+  background-clip: content-box, border-box;
 `;
 
 export const Box = styled.div`
-
- img{
+  display: flex;
+  column-gap: 6rem;
+  justify-content: space-between;
+  width: 100%;
+  img {
     height: 19rem;
     max-width: 492px;
- }
+    }
 `;
 
 export const Title = styled.h1`
@@ -47,6 +47,13 @@ export const SubTitle = styled.h2`
 
 export const Item = styled.section`
    display: flex;
+   align-items: center;
+   column-gap: 1rem;
+`;
+
+export const ItemInfo = styled.section`
+   display: flex;
+   flex-direction: column;
 `;
 
 export const CardContent = styled.div`
@@ -69,7 +76,7 @@ export const BoxItem = styled.div`
 `
 
 export const FaqIcon = styled(Icon).attrs<IconProps>(props => ({
-    icon: props.icon ?? null
+  icon: props.icon ?? null
 }))`
   
   `;
