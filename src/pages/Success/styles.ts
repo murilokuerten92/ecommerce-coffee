@@ -28,11 +28,7 @@ export const Box = styled.div`
   img {
     height: 19rem;
     max-width: 492px;
-    @media (max-width: 960px) {
-      display: none
     }
-    }
- 
 `;
 
 export const Title = styled.h1`
