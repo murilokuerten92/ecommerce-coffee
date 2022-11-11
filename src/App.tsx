@@ -1,14 +1,18 @@
-import { useState } from 'react'
-
-
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from './global';
+import { defaultTheme } from './styles';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './routes';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
 
