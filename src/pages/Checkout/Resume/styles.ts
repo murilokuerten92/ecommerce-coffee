@@ -10,6 +10,9 @@ export const Container = styled.form`
   display:grid;
   grid-template-columns: 1fr 448px;
   column-gap: 2rem;
+  @media (max-width: 960px) {
+ grid-template-columns: repeat(1, 1fr); 
+}
 `;
 
 export const PersonalDatas = styled.section`
@@ -33,6 +36,10 @@ export const Content = styled.div`
 export const Row = styled.div`
   display: flex;
   column-gap: 12px;
+
+  @media (max-width: 960px) {
+ flex-direction: column;
+}
 `;
 
 export const ResumeRow = styled.div`
@@ -135,7 +142,12 @@ export const CountBox = styled.div`
 export const RowPaymentMethods = styled.div`
   display: flex;
   column-gap: 12px;
-  margin-top: 32px;
+  margin-top: 2rem;
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+    row-gap: 12px;
+  }
 `;
 
 export const Form = styled.div`

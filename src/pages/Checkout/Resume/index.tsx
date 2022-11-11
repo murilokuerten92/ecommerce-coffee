@@ -51,7 +51,6 @@ export function Resume() {
     function handleCreateNewAddress(data: NewAddressFormData) {
         console.log(data)
     }
-    console.log(errors)
 
     return (
         <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
