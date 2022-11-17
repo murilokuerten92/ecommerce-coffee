@@ -1,27 +1,34 @@
-// import { createContext, ReactNode, useState } from 'react'
-// import { Cart } from '@/@types/mockes'
+import { createContext, ReactNode, useState, useContext } from 'react'
+import { Cart } from '@/@types/mockes'
 
-// interface CartContextType {
-//     cart: Cart[];
-// }
+interface CartContextType {
+    cart: Cart[];
+}
 
-// export const CartContext = createContext({} as CartContextType);
+export const CartContext = createContext({} as CartContextType);
 
-// interface CartContextProvidersProps {
-//     children: ReactNode
-// }
+interface CartContextProvidersProps {
+    children: ReactNode
+}
 
-// export function CartContextProvider({
-//     children
-// }: CartContextProvidersProps) {
+export function CartContextProvider({
+    children
+}: CartContextProvidersProps) {
 
-//     const [cart, setCart] = useState<Cart[]>([])
+    const [cart, setCart] = useState<Cart[]>([])
 
 
 
-//     return (
-//         <CartContext.Provider value={cart}>
-//             {children}
-//         </CartContext.Provider>
-//     )
-// }
+    return (
+        <CartContext.Provider value={{ cart }}>
+            {children}
+        </CartContext.Provider>
+    )
+}
+
+
+export function useCart() {
+    const context = useContext(CartContext);
+
+    return context
+}
