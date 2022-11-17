@@ -46,7 +46,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
                             <span className='countText'>
                                 {coffee.amount}
                             </span>
-                            <button className='count' onClick={() => handleUpdateAmount('add', coffee.id)}>
+                            <button className='count' type='submit' onClick={() => handleUpdateAmount('add', coffee.id)}>
                                 <S.AddIcon />
                             </button>
                         </S.CountBox>
