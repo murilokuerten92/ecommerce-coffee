@@ -28,7 +28,6 @@ export const Card = styled.section`
    background-color: ${({ theme }) => theme.base_card};
 `;
 
-
 export const Content = styled.div`
   padding: 40px;
 `;
