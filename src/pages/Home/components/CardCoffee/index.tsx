@@ -1,7 +1,17 @@
 import * as S from './styles';
-import { coffeeType } from '@/@types/mockes';
+import { CoffeeType } from '@/@types/mockes';
+import { useCoffee } from '@/providers/CoffeeContext'
 
-export function CardCoffee({ ...coffee }: coffeeType) {
+export function CardCoffee({ ...coffee }: CoffeeType) {
+
+    const { handleUpdateCoffeeAmount } = useCoffee()
+
+    function handleUpdateAmount(type: 'remove' | 'add', coffeeId: number) {
+        handleUpdateCoffeeAmount(type, coffeeId)
+
+    }
+
+    const accumulatorTotalItem = coffee?.total || coffee?.price;
 
     return (
         <S.Card>
@@ -25,18 +35,18 @@ export function CardCoffee({ ...coffee }: coffeeType) {
                 <S.Footer>
                     <section>
                         <strong className='currencyValue'>
-                            {coffee.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+                            {accumulatorTotalItem?.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
                         </strong>
                     </section>
                     <section className='countSum'>
                         <S.CountBox>
-                            <button className='count'>
+                            <button className='count' type='submit' disabled={coffee.amount < 2} onClick={() => handleUpdateAmount('remove', coffee.id)}>
                                 <S.RemoveIcon />
                             </button>
                             <span className='countText'>
-                                1
+                                {coffee.amount}
                             </span>
-                            <button className='count'>
+                            <button className='count' onClick={() => handleUpdateAmount('add', coffee.id)}>
                                 <S.AddIcon />
                             </button>
                         </S.CountBox>

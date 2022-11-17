@@ -1,18 +1,21 @@
-import { useState } from 'react';
+
 import * as S from './styles';
 import { Presentation } from '@/components/Presentation';
 import { CardCoffee } from './components/CardCoffee';
-import { coffees } from '@/constants/datas';
-import { coffeeType } from '@/@types/mockes';
+
+import { CoffeeType } from '@/@types/mockes';
+import { useCoffee } from '@/providers/CoffeeContext'
 
 export function Home() {
+
+    const { coffees } = useCoffee()
 
     return (
         <S.Container>
             <Presentation />
             <h1 className='CoffeeTitle'>Nossos cafés</h1>
             <S.SectionCards>
-                {coffees?.map((coffee: coffeeType) => (
+                {coffees?.map((coffee: CoffeeType) => (
                     <CardCoffee {...coffee} />
                 ))}
             </S.SectionCards>
