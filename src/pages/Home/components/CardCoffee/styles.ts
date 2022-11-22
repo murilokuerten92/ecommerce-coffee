@@ -85,13 +85,28 @@ export const CountBox = styled.div`
    }
 `;
 
-export const CartBox = styled.div`
+export const CartBox = styled.button`
     background-color: ${({ theme }) => theme.secondary};
     padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:focus {
+      outline: none !important;
+    box-shadow: none !important;
+       }
+       &:active {
+        border: none;
+        outline: none;
+       }
+       &:hover {
+        filter: brightness(0.9);
+        transition: 1ms;
+       }
 `;
 
 export const Footer = styled.footer`
@@ -123,19 +138,19 @@ export const Footer = styled.footer`
 export const CartIcon = styled(Icon).attrs<IconProps>(props => ({
   icon: props.icon ?? null
 }))`
-  
+
   `;
 
 export const AddIcon = styled(Icon).attrs(({
   icon: 'add'
 }))`
-  
+
   `;
 
 export const RemoveIcon = styled(Icon).attrs(({
   icon: 'remove'
 }))`
-  
+
   `;
 
 

@@ -8,17 +8,17 @@ import { useCoffee } from '@/providers/CoffeeContext'
 
 export function Home() {
 
-    const { coffees } = useCoffee()
+  const { coffees } = useCoffee()
 
-    return (
-        <S.Container>
-            <Presentation />
-            <h1 className='CoffeeTitle'>Nossos cafés</h1>
-            <S.SectionCards>
-                {coffees?.map((coffee: CoffeeType) => (
-                    <CardCoffee {...coffee} />
-                ))}
-            </S.SectionCards>
-        </S.Container>
-    )
+  return (
+    <S.Container>
+      <Presentation />
+      <h1 className='CoffeeTitle'>Nossos cafés</h1>
+      <S.SectionCards>
+        {coffees?.map((coffee: CoffeeType) => (
+          <CardCoffee key={coffee.id} {...coffee} />
+        ))}
+      </S.SectionCards>
+    </S.Container>
+  )
 }

@@ -4,6 +4,7 @@ import { defaultTheme } from './styles';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './routes';
 import { CoffeeContextProvider } from '@/providers/CoffeeContext'
+import { CartContextProvider } from '@/providers/CartContext'
 
 function App() {
 
@@ -11,7 +12,9 @@ function App() {
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <CoffeeContextProvider>
-          <Router />
+          <CartContextProvider>
+            <Router />
+          </CartContextProvider>
         </CoffeeContextProvider>
       </BrowserRouter>
       <GlobalStyle />

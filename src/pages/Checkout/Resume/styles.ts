@@ -11,7 +11,7 @@ export const Container = styled.form`
   grid-template-columns: 1fr 448px;
   column-gap: 2rem;
   @media (max-width: 960px) {
- grid-template-columns: repeat(1, 1fr); 
+ grid-template-columns: repeat(1, 1fr);
 }
 `;
 
@@ -64,7 +64,7 @@ export const ProductsRow = styled.div`
   display: flex;
   column-gap: .6rem;
   justify-content: space-between;
-
+   margin-bottom: 12px;
 `;
 
 export const Border = styled.div`
@@ -214,7 +214,7 @@ export const PaymentMethodCard = styled.div<Props>`
     background-color: ${({ theme }) => theme.secondary_light};
   `}
 
- 
+
 `;
 
 export const PaymentMethodTitle = styled.span`
@@ -290,12 +290,12 @@ export const ConfirmButton = styled.button<Props>`
 export const RemoveIcon = styled(Icon).attrs(({
   icon: 'remove'
 }))`
-  
+
   `;
 
 export const AddIcon = styled(Icon).attrs(({
   icon: 'add'
 }))`
-  
+
   `;
 
