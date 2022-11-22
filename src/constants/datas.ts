@@ -55,7 +55,7 @@ export const coffeesApi = [{
     }],
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
-    price: 9.90,
+    price: 15.90,
     img: americanCoffee,
     amount: 1,
     total: 0

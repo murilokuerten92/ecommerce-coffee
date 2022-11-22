@@ -71,6 +71,11 @@ export const CountBox = styled.div`
     border: none;
     background: transparent;
     cursor: pointer;
+    &:active {
+        border: none;
+        background: transparent;
+        outline: none;
+       }
    }
 
    .countText{

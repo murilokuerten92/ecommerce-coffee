@@ -8,7 +8,6 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
 
     function handleUpdateAmount(type: 'remove' | 'add', coffeeId: number) {
         handleUpdateCoffeeAmount(type, coffeeId)
-
     }
 
     const accumulatorTotalItem = coffee?.total || coffee?.price;
@@ -40,15 +39,15 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
                     </section>
                     <section className='countSum'>
                         <S.CountBox>
-                            <button className='count' type='submit' disabled={coffee.amount < 2} onClick={() => handleUpdateAmount('remove', coffee.id)}>
+                            <a className='count' type='submit' onClick={() => coffee.amount > 1 && handleUpdateAmount('remove', coffee.id)}>
                                 <S.RemoveIcon />
-                            </button>
+                            </a>
                             <span className='countText'>
                                 {coffee.amount}
                             </span>
-                            <button className='count' type='submit' onClick={() => handleUpdateAmount('add', coffee.id)}>
+                            <a className='count' type='submit' onClick={() => handleUpdateAmount('add', coffee.id)}>
                                 <S.AddIcon />
-                            </button>
+                            </a>
                         </S.CountBox>
 
                         <S.CartBox>
