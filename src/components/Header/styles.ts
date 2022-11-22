@@ -31,6 +31,37 @@ export const PinLogo = styled(Icon).attrs(({ theme }) => ({
 export const UserSection = styled.section`
   display: flex;
   column-gap: 0.8rem;
+`;
+
+export const BoxCartLength = styled.div`
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 0px;
+
+position: absolute;
+width: 22px;
+height: 22px;
+right: -8.35px;
+top: -8px;
+
+/* Brand / Yellow Dark */
+
+background: ${({ theme }) => theme.primary_dark};
+border-radius: 1000px;
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+flex-grow: 0;
+z-index: 1;
+color: ${({ theme }) => theme.shape};
+font-weight: bold;
+font-size: 0.875rem;
 `
 
 export const Location = styled.div`
@@ -51,8 +82,7 @@ export const Cart = styled.div`
   justify-content: center;
   border: none;
   cursor: pointer;
-
-
+  position: relative;
 `
 
 export const LocationText = styled.span`
