@@ -59,6 +59,10 @@ export function Resume() {
     deleteItem(data)
   }
 
+  const cartSubTotal = items.reduce((accumulator, sum) => accumulator + (sum.total || sum.price), 0)
+
+  const cartTotal = cartSubTotal + 3.50;
+
   return (
     <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
       <S.PersonalDatas>
@@ -175,7 +179,8 @@ export function Resume() {
                 </S.ProductsColumn>
               </S.ProductsInfoRow>
               <S.ProductPrice>
-                {product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+
+                {product.price > product?.total ? product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : product.total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
               </S.ProductPrice>
             </S.ProductsRow>
           ))}
@@ -194,13 +199,13 @@ export function Resume() {
             </S.ResumeColumn>
             <S.ResumeColumnPrice>
               <S.ResumeInfo>
-                R$ 29,70
+                {cartSubTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
               </S.ResumeInfo>
               <S.ResumeInfo>
                 R$ 3,50
               </S.ResumeInfo>
               <S.ProductTotal>
-                R$ 33,20
+                {cartTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
               </S.ProductTotal>
             </S.ResumeColumnPrice>
           </S.ResumeRow>
