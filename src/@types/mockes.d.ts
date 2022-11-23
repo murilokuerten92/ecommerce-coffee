@@ -11,7 +11,7 @@ export type CoffeeType = {
   price: number;
   img: any;
   amount: number
-  total: number
+  total?: number | undefined
 }
 
 export interface coffeeAll {
@@ -30,5 +30,5 @@ export interface Cart {
   amount: number;
   price: number;
   img: any;
-  total: number;
+  total?: number | undefined 
 }
