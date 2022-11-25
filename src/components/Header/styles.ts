@@ -9,24 +9,7 @@ export const Container = styled.header`
   align-items: center;
 `;
 
-export const CoffeeLogo = styled(Icon).attrs({
-  icon: 'logo'
-})`
 
-`;
-
-export const CartLogo = styled(Icon).attrs({
-  icon: 'cart'
-})`
-
-`;
-
-export const PinLogo = styled(Icon).attrs(({ theme }) => ({
-  icon: 'pin',
-  color: theme.secondary
-}))`
-
-`;
 
 export const UserSection = styled.section`
   display: flex;
@@ -34,8 +17,6 @@ export const UserSection = styled.section`
 `;
 
 export const BoxCartLength = styled.div`
-/* Auto layout */
-
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -48,12 +29,8 @@ height: 22px;
 right: -8.35px;
 top: -8px;
 
-/* Brand / Yellow Dark */
-
 background: ${({ theme }) => theme.primary_dark};
 border-radius: 1000px;
-
-/* Inside auto layout */
 
 flex: none;
 order: 1;
@@ -91,3 +68,22 @@ export const LocationText = styled.span`
   font-family: 'Roboto';
   color: ${({ theme }) => theme.secondary};
 `
+
+export const CoffeeLogo = styled(Icon).attrs({
+  icon: 'logo'
+})`
+
+`;
+
+export const CartLogo = styled(Icon).attrs({
+  icon: 'cart'
+})`
+
+`;
+
+export const PinLogo = styled(Icon).attrs(({ theme }) => ({
+  icon: 'pin',
+  color: theme.secondary
+}))`
+
+`;
