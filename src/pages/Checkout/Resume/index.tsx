@@ -24,6 +24,8 @@ const newAddressFormValidationSchema = zod.object({
 
 type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 
+const FREIGHT_VALUE = 3.50;
+
 export function Resume() {
 
   const [paymentMethodSelected, setPaymentMethodSelected] = useState('');
@@ -61,7 +63,7 @@ export function Resume() {
 
   const cartSubTotal = items.reduce((accumulator, sum) => accumulator + (sum.total || sum.price), 0)
 
-  const cartTotal = cartSubTotal + 3.50;
+  const cartTotal = cartSubTotal + FREIGHT_VALUE;
 
   return (
     <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
