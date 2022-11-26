@@ -50,7 +50,7 @@ export const Location = styled.div`
   column-gap: 0.6rem;
 `;
 
-export const Cart = styled.div`
+export const Cart = styled.button`
   padding: .8rem;
   background: ${({ theme }) => theme.primary_light};
   border-radius: 6px;
@@ -60,6 +60,18 @@ export const Cart = styled.div`
   border: none;
   cursor: pointer;
   position: relative;
+  &:focus {
+      outline: none !important;
+    box-shadow: none !important;
+       }
+       &:active {
+        border: none;
+        outline: none;
+       }
+       &:hover {
+        filter: brightness(0.9);
+        transition: 1ms;
+       }
 `
 
 export const LocationText = styled.span`

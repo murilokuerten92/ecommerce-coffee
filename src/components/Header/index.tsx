@@ -19,7 +19,7 @@ export function Header() {
           </S.LocationText>
         </S.Location>
 
-        <S.Cart onClick={() => navigate('/checkout')}>
+        <S.Cart data-testid='cartButton' onClick={() => navigate('/checkout')}>
           {items?.length > 0 && <S.BoxCartLength>
             {items?.length}
           </S.BoxCartLength>}
