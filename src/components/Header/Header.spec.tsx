@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { Header } from '.'
 
 jest.mock('react-router-dom', () => {
@@ -13,9 +13,9 @@ jest.mock('react-router-dom', () => {
 
 describe('Header component', () => {
   it('should be render location text', () => {
-    const { getByText } = render(<Header />)
+    render(<Header />)
 
-    expect(getByText('Porto Alegre, RS')).toBeInTheDocument();
+    expect(screen.getByText('Porto Alegre, RS')).toBeInTheDocument();
   })
 })
 
