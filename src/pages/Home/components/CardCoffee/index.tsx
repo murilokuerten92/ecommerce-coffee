@@ -6,14 +6,14 @@ import { useCart } from '@/providers/CartContext';
 export function CardCoffee({ ...coffee }: CoffeeType) {
 
   const { handleUpdateCoffeeAmount } = useCoffee()
-  const { createNewItem } = useCart();
+  const { addToCart } = useCart();
 
   function handleUpdateAmount(type: 'remove' | 'add', coffeeId: number) {
     handleUpdateCoffeeAmount(type, coffeeId)
   }
 
   function handleCreateNewItem(cartItem: CoffeeType) {
-    createNewItem(cartItem)
+    addToCart(cartItem)
   }
   const accumulatorTotalItem = coffee?.total || coffee?.price;
 
