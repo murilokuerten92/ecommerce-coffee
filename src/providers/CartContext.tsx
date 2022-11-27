@@ -3,13 +3,19 @@ import { Cart, CoffeeType } from '@/@types/mockes'
 import { cartReducer } from "@/reducers/carts/reducers"
 import { ActionTypes } from '@/reducers/carts/actions';
 
-interface CartContextType {
+export interface CartContextType {
   items: Cart[];
-  createNewItem: (data: CoffeeType) => void;
-  deleteItem: (data: Cart) => void;
+  addToCart: (data: CoffeeType) => void;
+  removeFromCart: (data: Cart) => void;
 }
 
-export const CartContext = createContext({} as CartContextType);
+export const CartContextDefaultValues = {
+  items: [],
+  addToCart: () => null,
+  removeFromCart: () => null,
+}
+
+export const CartContext = createContext<CartContextType>(CartContextDefaultValues);
 
 interface CartContextProvidersProps {
   children: ReactNode
@@ -26,7 +32,7 @@ export function CartContextProvider({
 
   const { items } = cartState
 
-  function createNewItem(data: CoffeeType) {
+  function addToCart(data: CoffeeType) {
 
     const newItem: Cart = {
       id: data.id,
@@ -46,7 +52,7 @@ export function CartContextProvider({
     })
   }
 
-  function deleteItem(newItem: Cart) {
+  function removeFromCart(newItem: Cart) {
 
     dispatch({
       type: ActionTypes.DELETE_ITEM,
@@ -57,7 +63,7 @@ export function CartContextProvider({
   }
 
   return (
-    <CartContext.Provider value={{ items, createNewItem, deleteItem }}>
+    <CartContext.Provider value={{ items, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   )

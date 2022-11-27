@@ -20,10 +20,10 @@ export function Header() {
         </S.Location>
 
         <S.Cart data-testid='cartButton' onClick={() => navigate('/checkout')}>
-          {items?.length > 0 && <S.BoxCartLength>
+          {items?.length > 0 && <S.BoxCartLength data-testid='cartItems' aria-label="Cart Items">
             {items?.length}
           </S.BoxCartLength>}
-          <S.CartLogo />
+          <S.CartLogo aria-label="Shopping Cart" />
         </S.Cart>
       </S.UserSection>
     </S.Container>

@@ -34,7 +34,7 @@ export function Resume() {
 
   const theme = useTheme();
 
-  const { items, deleteItem } = useCart();
+  const { items, removeFromCart } = useCart();
 
   const { register, handleSubmit, formState: { errors } } = useForm<NewAddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
@@ -58,7 +58,7 @@ export function Resume() {
   }
 
   function handleItemDelete(data: Cart) {
-    deleteItem(data)
+    removeFromCart(data)
   }
 
   const cartSubTotal = items.reduce((accumulator, sum) => accumulator + (sum.total || sum.price), 0)
