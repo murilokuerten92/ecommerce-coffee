@@ -7,12 +7,14 @@ export interface CartContextType {
   items: Cart[];
   addToCart: (data: CoffeeType) => void;
   removeFromCart: (data: Cart) => void;
+  updateCoffeeAmountFromCart: (type: 'remove' | 'add', coffeeId: number) => void;
 }
 
 export const CartContextDefaultValues = {
   items: [],
   addToCart: () => null,
   removeFromCart: () => null,
+  updateCoffeeAmountFromCart: () => null
 }
 
 export const CartContext = createContext<CartContextType>(CartContextDefaultValues);
@@ -52,6 +54,10 @@ export function CartContextProvider({
     })
   }
 
+  function updateCoffeeAmountFromCart() {
+    //implement
+  }
+
   function removeFromCart(newItem: Cart) {
 
     dispatch({
@@ -63,7 +69,7 @@ export function CartContextProvider({
   }
 
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ items, addToCart, removeFromCart, updateCoffeeAmountFromCart }}>
       {children}
     </CartContext.Provider>
   )

@@ -34,7 +34,7 @@ export function Resume() {
 
   const theme = useTheme();
 
-  const { items, removeFromCart } = useCart();
+  const { items, removeFromCart, updateCoffeeAmountFromCart } = useCart();
 
   const { register, handleSubmit, formState: { errors } } = useForm<NewAddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
@@ -55,6 +55,10 @@ export function Resume() {
 
   function handleCreateNewAddress(data: NewAddressFormData) {
     console.log(data)
+  }
+
+  function handleUpdateCoffeeAmount(type: 'remove' | 'add', coffeeId: number) {
+    updateCoffeeAmountFromCart(type, coffeeId)
   }
 
   function handleItemDelete(data: Cart) {
@@ -159,13 +163,13 @@ export function Resume() {
                   </S.HeaderTitle>
                   <S.ProductsRow>
                     <S.CountBox>
-                      <button className='count'>
+                      <button className='count' onClick={() => product.amount > 1 && handleUpdateCoffeeAmount('remove', product.id)}>
                         <S.RemoveIcon />
                       </button>
                       <span className='countText'>
                         {product.amount}
                       </span>
-                      <button className='count'>
+                      <button className='count' onClick={() => handleUpdateCoffeeAmount('add', product.id)}>
                         <S.AddIcon />
                       </button>
                     </S.CountBox>

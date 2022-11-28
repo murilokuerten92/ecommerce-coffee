@@ -5,11 +5,11 @@ import { useCart } from '@/providers/CartContext';
 
 export function CardCoffee({ ...coffee }: CoffeeType) {
 
-  const { handleUpdateCoffeeAmount } = useCoffee()
+  const { updateCoffeeAmount } = useCoffee()
   const { addToCart } = useCart();
 
   function handleUpdateAmount(type: 'remove' | 'add', coffeeId: number) {
-    handleUpdateCoffeeAmount(type, coffeeId)
+    updateCoffeeAmount(type, coffeeId)
   }
 
   function handleCreateNewItem(cartItem: CoffeeType) {
