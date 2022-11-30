@@ -20,7 +20,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
   return (
     <S.Card>
       <S.CardContent key={coffee.id}>
-        <S.CoffeeImage src={coffee.img} alt='name coffee' />
+        <S.CoffeeImage src={coffee.img} alt={coffee.name} />
         <S.Tags>
           {coffee.types.map(type => (
             <S.TagsCoffeeType key={type.id} >
