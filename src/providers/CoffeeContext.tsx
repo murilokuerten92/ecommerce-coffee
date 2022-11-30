@@ -22,7 +22,7 @@ export function CoffeeContextProvider({
   useEffect(() => {
     setTimeout(() => {
       setCoffees(coffeesApi)
-    }, 100)
+    }, 1000)
   }, [])
 
   function updateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
