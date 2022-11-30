@@ -3,15 +3,11 @@ import { Cart, CoffeeType } from '@/@types/mockes'
 import { cartReducer } from "@/reducers/carts/reducers"
 import { ActionTypes } from '@/reducers/carts/actions';
 
-export type AmountType = {
-  type: 'remove' | 'add'
-}
-
 export interface CartContextType {
   items: Cart[];
   addToCart: (data: CoffeeType) => void;
   removeFromCart: (data: Cart) => void;
-  updateCoffeeAmountFromCart: (type: AmountType, coffeeId: number) => void;
+  updateCoffeeAmountFromCart: (type: 'add' | 'remove', coffeeId: number) => void;
 }
 
 export const CartContextDefaultValues = {
@@ -58,7 +54,7 @@ export function CartContextProvider({
     })
   }
 
-  function updateCoffeeAmountFromCart(type: AmountType, coffeeId: number) {
+  function updateCoffeeAmountFromCart(type: 'add' | 'remove', coffeeId: number) {
     dispatch({
       type: ActionTypes.UPDATE_ITEM,
       payload: {
