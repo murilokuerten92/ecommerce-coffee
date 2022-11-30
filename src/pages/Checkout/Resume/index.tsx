@@ -10,7 +10,7 @@ import { Cart, PaymentMethods } from '@/@types/mockes'
 
 import { maskCep } from '@/helpers/masks'
 import { useNavigate } from 'react-router-dom';
-import { AmountType, useCart } from '@/providers/CartContext';
+import { useCart } from '@/providers/CartContext';
 
 const newAddressFormValidationSchema = zod.object({
   cep: zod.string().min(7, 'Informe o cep'),
@@ -57,7 +57,7 @@ export function Resume() {
     console.log(data)
   }
 
-  function handleUpdateCoffeeAmount(type: AmountType, coffeeId: number) {
+  function handleUpdateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
     updateCoffeeAmountFromCart(type, coffeeId)
   }
 
