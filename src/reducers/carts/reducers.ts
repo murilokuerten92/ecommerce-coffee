@@ -46,6 +46,7 @@ export function cartReducer(state: CartState, action: any) {
       return produce(state, draft => {
         draft.items = cartItemsParsed
       })
+    }
     case ActionTypes.DELETE_ITEM: {
 
       const currentItemIndex = state.items.indexOf(action.payload.newItem.id)
