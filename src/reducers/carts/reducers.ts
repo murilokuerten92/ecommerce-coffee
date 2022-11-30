@@ -28,10 +28,24 @@ export function cartReducer(state: CartState, action: any) {
           draft.itemId = action.payload.newItem.id
       })
     }
-    case ActionTypes.UPDATE_ITEM:
-      return produce(state, draft => {
-        draft.items.push(action.payload.newItem)
+    case ActionTypes.UPDATE_ITEM: {
+      const cartItems = [...state.items];
+
+      const newArray: any = cartItems?.map(coffeItem => {
+        if (action.payload.coffeeId === coffeItem.id) {
+
+          const AddRemoveItemAmount = action.payload.type === 'add' ? coffeItem.amount + 1 : coffeItem.amount - 1;
+          const item = { ...coffeItem, amount: AddRemoveItemAmount, total: coffeItem.price * AddRemoveItemAmount }
+          return { ...item }
+        }
+
+        return coffeItem
       })
+
+      return produce(state, draft => {
+        draft.items = newArray
+      })
+    }
     case ActionTypes.DELETE_ITEM: {
 
       const currentItemIndex = state.items.indexOf(action.payload.newItem.id)
