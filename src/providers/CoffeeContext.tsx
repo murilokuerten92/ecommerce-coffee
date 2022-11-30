@@ -27,16 +27,17 @@ export function CoffeeContextProvider({
 
   function updateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
 
-    coffees?.map(coffeItem => {
+    const coffeesParsed = coffees?.map(coffeItem => {
       if (coffeeId === coffeItem.id) {
         const AddRemoveItemAmount = type === 'add' ? coffeItem.amount + 1 : coffeItem.amount - 1;
-        const item = { ...coffeItem, amount: AddRemoveItemAmount, total: coffeItem.price * AddRemoveItemAmount }
-        const coffeeParsed = coffees[coffees.findIndex(coffeeItem => coffeeItem.id === item.id)] = item;
-        return setCoffees(coffees => [...coffees, coffeeParsed])
+        const updatedItem = { ...coffeItem, amount: AddRemoveItemAmount, total: coffeItem.price * AddRemoveItemAmount }
+        return { ...updatedItem }
       }
+      return coffeItem
     })
-    const allCoffees = [...new Set(coffees.map((coffeeItem: CoffeeType) => coffeeItem))]
-    return setCoffees([...allCoffees])
+
+
+    return setCoffees(coffeesParsed)
   }
 
   return (

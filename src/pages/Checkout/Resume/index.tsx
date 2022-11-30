@@ -156,7 +156,7 @@ export function Resume() {
           {items?.map(product => (
             <S.ProductsRow key={product.id}>
               <S.ProductsInfoRow>
-                <S.CoffeeImage src={product.img} />
+                <S.CoffeeImage src={product.img} alt={product.title} />
                 <S.ProductsColumn>
                   <S.HeaderTitle>
                     {product.title}
