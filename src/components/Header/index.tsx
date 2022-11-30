@@ -1,12 +1,15 @@
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/providers/CartContext';
+import { useLocation } from '@/hooks/useLocation';
 
 export function Header() {
 
   const navigate = useNavigate();
 
   const { items } = useCart()
+
+  const { currentLocation } = useLocation();
 
   return (
     <S.Container>
@@ -15,7 +18,7 @@ export function Header() {
         <S.Location>
           <S.PinLogo />
           <S.LocationText>
-            Porto Alegre, RS
+            {currentLocation ?? 'Location'}
           </S.LocationText>
         </S.Location>
 
