@@ -9,6 +9,9 @@ export const Container = styled.header`
   align-items: center;
 `;
 
+export const HomelInkNavigate = styled.a`
+cursor: pointer;
+`;
 
 
 export const UserSection = styled.section`

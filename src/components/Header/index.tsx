@@ -11,9 +11,13 @@ export function Header() {
 
   const { currentLocation } = useLocation();
 
+  const hasItemsOnCart = items.length > 0;
+
   return (
     <S.Container>
-      <S.CoffeeLogo />
+      <S.HomelInkNavigate accessKey='navigate to home' onClick={() => navigate('/')}>
+        <S.CoffeeLogo />
+      </S.HomelInkNavigate>
       <S.UserSection>
         <S.Location>
           <S.PinLogo />
@@ -22,8 +26,8 @@ export function Header() {
           </S.LocationText>
         </S.Location>
 
-        <S.Cart data-testid='cartButton' onClick={() => navigate('/checkout')}>
-          {items?.length > 0 && <S.BoxCartLength data-testid='cartItems' aria-label="Cart Items">
+        <S.Cart data-testid='cartButton' onClick={() => hasItemsOnCart && navigate('/checkout')}>
+          {hasItemsOnCart && <S.BoxCartLength data-testid='cartItems' aria-label="Cart Items">
             {items?.length}
           </S.BoxCartLength>}
           <S.CartLogo aria-label="Shopping Cart" />
