@@ -13,6 +13,7 @@ import creditCard from './creditCard'
 import debitCard from './debitCard'
 import money from './money'
 import trash from './trash'
+import cartEmpty from './cartEmpty'
 
 const icons = {
   logo,
@@ -29,7 +30,8 @@ const icons = {
   creditCard,
   debitCard,
   money,
-  trash
+  trash,
+  cartEmpty
 }
 
 export default icons

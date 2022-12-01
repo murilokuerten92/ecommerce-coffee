@@ -5,8 +5,8 @@ import { useCart } from '@/providers/CartContext';
 
 export function CardCoffee({ ...coffee }: CoffeeType) {
 
-  const { updateCoffeeAmount } = useCoffee()
-  const { addToCart } = useCart();
+  const { updateCoffeeAmount, coffees } = useCoffee()
+  const { addToCart, items } = useCart();
 
   function handleUpdateAmount(type: 'remove' | 'add', coffeeId: number) {
     updateCoffeeAmount(type, coffeeId)
@@ -56,7 +56,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
             </S.CountBox>
 
             <S.CartBox type='submit' onClick={() => handleCreateNewItem(coffee)}>
-              <S.CartIcon icon='cartHome' />
+              <S.CartIcon icon={items.some(item => item.id === coffee.id) ? 'cartEmpty' : 'cartHome'} />
             </S.CartBox>
           </section>
         </S.Footer>
