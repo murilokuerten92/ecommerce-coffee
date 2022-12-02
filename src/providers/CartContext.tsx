@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext, useReducer } from 'react'
 import { Cart, CoffeeType } from '@/@types/mockes'
 import { cartReducer } from "@/reducers/carts/reducers"
 import { ActionTypes } from '@/reducers/carts/actions';
+import { toast } from 'react-toastify'
 
 export interface CartContextType {
   items: Cart[];
@@ -52,6 +53,7 @@ export function CartContextProvider({
         itemId: newItem.id
       }
     })
+    toast.success('Item adicionado ao carrinho')
   }
 
   function updateCoffeeAmountFromCart(type: 'add' | 'remove', coffeeId: number) {
