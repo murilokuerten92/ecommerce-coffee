@@ -19,13 +19,13 @@ export function Header() {
         <S.CoffeeLogo />
       </S.HomelInkNavigate>
       <S.UserSection>
-        <S.Location>
+
+        {currentLocation && <S.Location>
           <S.PinLogo />
           <S.LocationText>
             {currentLocation ?? 'Location'}
           </S.LocationText>
-        </S.Location>
-
+        </S.Location>}
         <S.Cart data-testid='cartButton' onClick={() => hasItemsOnCart && navigate('/checkout')}>
           {hasItemsOnCart && <S.BoxCartLength data-testid='cartItems' aria-label="Cart Items">
             {items?.length}
