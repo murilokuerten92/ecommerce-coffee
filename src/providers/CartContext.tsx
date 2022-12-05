@@ -1,7 +1,8 @@
-import { createContext, ReactNode, useContext, useReducer } from 'react'
+import { createContext, ReactNode, useContext, useReducer, useEffect } from 'react'
 import { Cart, CoffeeType } from '@/@types/mockes'
-import { cartReducer } from "@/reducers/carts/reducers"
+import { cartReducer, CartState, CART_KEY, initializer } from "@/reducers/carts/reducers"
 import { ActionTypes } from '@/reducers/carts/actions';
+import { setStorageItem } from '@/utils/localStorage'
 import { toast } from 'react-toastify'
 
 export interface CartContextType {
@@ -28,10 +29,11 @@ export function CartContextProvider({
   children
 }: CartContextProvidersProps) {
 
-  const [cartState, dispatch] = useReducer(cartReducer, {
-    items: [],
-    itemId: null
-  })
+  const [cartState, dispatch] = useReducer(cartReducer, { items: [], itemId: null }, initializer);
+
+  useEffect(() => {
+    setStorageItem(CART_KEY, cartState);
+  }, [cartState]);
 
   const { items } = cartState
 

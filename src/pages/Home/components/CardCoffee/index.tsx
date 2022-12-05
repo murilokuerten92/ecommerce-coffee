@@ -56,7 +56,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
             </S.CountBox>
 
             <S.CartBox type='submit' onClick={() => handleCreateNewItem(coffee)}>
-              <S.CartIcon icon={items.some(item => item.id === coffee.id) ? 'cartEmpty' : 'cartHome'} />
+              <S.CartIcon icon={items?.some(item => item.id === coffee.id) ? 'cartEmpty' : 'cartHome'} />
             </S.CartBox>
           </section>
         </S.Footer>

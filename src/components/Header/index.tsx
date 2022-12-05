@@ -11,7 +11,7 @@ export function Header() {
 
   const { currentLocation } = useLocation();
 
-  const hasItemsOnCart = items.length > 0;
+  const hasItemsOnCart = items?.length > 0;
 
   return (
     <S.Container>
