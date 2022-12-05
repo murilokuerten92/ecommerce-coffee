@@ -1,5 +1,8 @@
 import { produce } from 'immer'
 import { Cart } from '@/@types/mockes'
+import { getStorageItem } from '@/utils/localStorage';
+
+export const CART_KEY = 'cartItems'
 
 export enum ActionTypes {
   ADD_NEW_ITEM = 'ADD_NEW_ITEM',
@@ -7,10 +10,18 @@ export enum ActionTypes {
   DELETE_ITEM = 'DELETE_ITEM',
 }
 
-interface CartState {
+export interface CartState {
   items: Cart[],
   itemId?: number | null
 }
+
+const initialState: CartState = {
+  items: [],
+  itemId: null
+}
+
+export const initializer = (initialValue = initialState) =>
+  getStorageItem(CART_KEY) || initialValue;
 
 export function cartReducer(state: CartState, action: any) {
   switch (action.type) {
