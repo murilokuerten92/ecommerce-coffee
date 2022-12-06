@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as S from './styles';
 import { Icon } from '@/icon/icon'
 import { useTheme } from 'styled-components';
@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/providers/CartContext';
 
 const newAddressFormValidationSchema = zod.object({
-  cep: zod.string().min(7, 'zip-code-required'),
+  zipCode: zod.string().min(7, 'zip-code-required'),
   street: zod.string().min(5, 'strict required'),
   number: zod.string().min(1, 'number required'),
   complement: zod.string().min(1, 'Complement required'),
@@ -24,7 +24,7 @@ const newAddressFormValidationSchema = zod.object({
 
 type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 
-const FREIGHT_VALUE = 3.50;
+const FREIGHT_VALUE = 3.50
 
 export function Resume() {
 
@@ -36,10 +36,10 @@ export function Resume() {
 
   const { items, removeFromCart, updateCoffeeAmountFromCart } = useCart();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<NewAddressFormData>({
+  const { register, handleSubmit, formState: { errors }, setValue, watch, control } = useForm<NewAddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
     defaultValues: {
-      cep: '',
+      zipCode: '',
       street: '',
       number: '',
       complement: '',
@@ -48,6 +48,22 @@ export function Resume() {
       uf: ''
     }
   });
+
+  useEffect(() => {
+
+    const zipCodeParsed = watch('zipCode').replace('-', '');
+
+    if (zipCodeParsed.length >= 8) {
+      fetch(`https://viacep.com.br/ws/${Number(zipCodeParsed)}/json/`).then(response => response.json()).then(response => {
+        setValue('street', response.logradouro)
+        setValue('complement', response.complemento)
+        setValue('district', response.bairro)
+        setValue('city', response.localidade)
+        setValue('uf', response.uf)
+      })
+    }
+
+  }, [watch('zipCode')])
 
   function handleChangePaymentMethods(selectedPaymentMethod: string) {
     setPaymentMethodSelected(selectedPaymentMethod)
@@ -87,17 +103,15 @@ export function Resume() {
               </S.HeaderColumn>
             </S.Header>
             <S.Form>
-              <S.AddressInputPattern placeholder='Zip-code' {...register('cep', {
-                pattern: {
-                  value: /^[0-9]{5}-[0-9]{3}$/i,
-                  message: 'cep é obrigatório'
-                },
 
+              <S.AddressInputPattern placeholder='Zip-code' {...register('zipCode', {
+                required: true
               })}
                 maxLength={8}
                 onChange={(event) => {
                   const { value } = event.target;
                   event.target.value = maskCep(value)
+                  setValue('zipCode', event.target.value)
                 }}
               />
               <S.AddressStreet {...register('street', {
