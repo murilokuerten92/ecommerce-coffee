@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useContext, useReducer, useEffect } from 'react'
 import { Cart, CoffeeType } from '@/@types/mockes'
-import { cartReducer, CartState, CART_KEY, initializer } from "@/reducers/carts/reducers"
+import { cartReducer, CART_KEY, initializer } from "@/reducers/carts/reducers"
 import { ActionTypes } from '@/reducers/carts/actions';
 import { setStorageItem } from '@/utils/localStorage'
 import { toast } from 'react-toastify'
@@ -38,6 +38,14 @@ export function CartContextProvider({
   const { items } = cartState
 
   function addToCart(data: CoffeeType) {
+
+    const hasItemOnCart = items.some(item => {
+      return item.id === data.id
+    })
+
+    if (hasItemOnCart) {
+      return
+    }
 
     const newItem: Cart = {
       id: data.id,

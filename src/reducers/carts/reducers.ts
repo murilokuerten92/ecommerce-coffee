@@ -27,13 +27,6 @@ export function cartReducer(state: CartState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_ITEM: {
 
-      const currentItemIndex = state.items.findIndex(item => {
-        return item.id === action.payload.newItem.id
-      })
-
-      if (currentItemIndex >= 0) {
-        return state
-      }
       return produce(state, draft => {
         draft.items.push(action.payload.newItem),
           draft.itemId = action.payload.newItem.id
