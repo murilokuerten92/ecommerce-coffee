@@ -12,7 +12,7 @@ export function Home() {
   return (
     <S.Container>
       <Presentation />
-      <h1 className='CoffeeTitle'>Nossos cafés</h1>
+      <h1 className='CoffeeTitle'>Our Coffees</h1>
       <S.SectionCards>
         {coffees?.map((coffee: CoffeeType) => (
           <CardCoffee key={coffee.id} {...coffee} />
