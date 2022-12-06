@@ -13,13 +13,13 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/providers/CartContext';
 
 const newAddressFormValidationSchema = zod.object({
-  cep: zod.string().min(7, 'Informe o cep'),
-  street: zod.string().min(5, 'Informe o nome da rua'),
-  number: zod.string().min(1, 'Informe o número'),
-  complement: zod.string().min(1, 'Informe um complemento'),
-  district: zod.string().min(2, 'Informe o bairro'),
-  city: zod.string().min(5, 'Informe a cidade'),
-  uf: zod.string().min(2, 'Informe o estado')
+  cep: zod.string().min(7, 'zip-code-required'),
+  street: zod.string().min(5, 'strict required'),
+  number: zod.string().min(1, 'number required'),
+  complement: zod.string().min(1, 'Complement required'),
+  district: zod.string().min(2, 'District required'),
+  city: zod.string().min(5, 'City required'),
+  uf: zod.string().min(2, 'State required')
 })
 
 type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
@@ -72,22 +72,22 @@ export function Resume() {
   return (
     <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
       <S.PersonalDatas>
-        <S.Title>Complete seu pedido</S.Title>
+        <S.Title>Complet your order</S.Title>
         <S.Card>
           <S.Content>
             <S.Header>
               <Icon icon='pinOutline' color={theme.primary} />
               <S.HeaderColumn>
                 <S.HeaderTitle>
-                  Endereço de Entrega
+                  Delivery Address
                 </S.HeaderTitle>
                 <S.ResumeInfo>
-                  Informe o endereço onde deseja receber seu pedido
+                  Put the address where wish receive your order
                 </S.ResumeInfo>
               </S.HeaderColumn>
             </S.Header>
             <S.Form>
-              <S.AddressInputPattern placeholder='CEP' {...register('cep', {
+              <S.AddressInputPattern placeholder='Zip-code' {...register('cep', {
                 pattern: {
                   value: /^[0-9]{5}-[0-9]{3}$/i,
                   message: 'cep é obrigatório'
@@ -102,20 +102,20 @@ export function Resume() {
               />
               <S.AddressStreet {...register('street', {
                 required: true
-              })} placeholder='Rua' />
+              })} placeholder='Street' />
               <S.Row>
-                <S.AddressInputPattern placeholder='Número' {...register('number', { required: true })} />
+                <S.AddressInputPattern placeholder='Number' {...register('number', { required: true })} />
                 <S.AddressStreet {...register('complement', {
                   required: true
-                })} placeholder='Complemento' />
+                })} placeholder='Complement' />
               </S.Row>
               <S.Row>
                 <S.AddressInputPattern {...register('district', {
                   required: true
-                })} placeholder='Bairro' />
+                })} placeholder='District' />
                 <S.AddressCity {...register('city', {
                   required: true
-                })} placeholder='Cidade' />
+                })} placeholder='City' />
                 <S.AddressState {...register('uf', {
                   required: true
                 })} maxLength={2} placeholder='UF' />
@@ -129,10 +129,10 @@ export function Resume() {
               <Icon icon='dollar' color={theme.secondary} />
               <S.HeaderColumn>
                 <S.HeaderTitle>
-                  Pagamento
+                  Payment
                 </S.HeaderTitle>
                 <S.ResumeInfo>
-                  O pagamento é feito na entrega. Escolha a forma que deseja pagar
+                  The payment is done on delivery. Choice the from that wish to pay
                 </S.ResumeInfo>
               </S.HeaderColumn>
             </S.Header>
@@ -150,7 +150,7 @@ export function Resume() {
         </S.Card>
       </S.PersonalDatas>
       <S.Resume>
-        <S.Title>Cafés selecionados</S.Title>
+        <S.Title>Selected Coffees</S.Title>
         <S.ResumeContent>
 
           {items?.map(product => (
@@ -177,7 +177,7 @@ export function Resume() {
                       <button onClick={() => handleItemDelete(product)}>
                         <Icon icon='trash' />
                         <S.PaymentMethodTitle>
-                          REMOVER
+                          REMOVE
                         </S.PaymentMethodTitle>
                       </button>
                     </S.CountBox>
@@ -186,7 +186,7 @@ export function Resume() {
               </S.ProductsInfoRow>
               <S.ProductPrice>
 
-                {product.price > product?.total ? product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : product.total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+                {product.price > product?.total ? product.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : product.total.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
               </S.ProductPrice>
             </S.ProductsRow>
           ))}
@@ -194,10 +194,10 @@ export function Resume() {
           <S.ResumeRow>
             <S.ResumeColumn>
               <S.ResumeInfo>
-                Total de itens
+                Items total
               </S.ResumeInfo>
               <S.ResumeInfo>
-                Entrega
+                Delivery
               </S.ResumeInfo>
               <S.ProductTotal>
                 Total
@@ -205,18 +205,18 @@ export function Resume() {
             </S.ResumeColumn>
             <S.ResumeColumnPrice>
               <S.ResumeInfo>
-                {cartSubTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+                {cartSubTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
               </S.ResumeInfo>
               <S.ResumeInfo>
-                R$ 3,50
+                $ 3,50
               </S.ResumeInfo>
               <S.ProductTotal>
-                {cartTotal.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+                {cartTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
               </S.ProductTotal>
             </S.ResumeColumnPrice>
           </S.ResumeRow>
           <S.ConfirmButton onClick={() => navigate('/success')} disabled={paymentMethodSelected === ''} type='submit'>
-            CONFIRMAR PEDIDO
+            ORDER CONFIRM
           </S.ConfirmButton>
         </S.ResumeContent>
       </S.Resume>

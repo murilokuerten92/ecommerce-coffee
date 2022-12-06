@@ -39,7 +39,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
         <S.Footer>
           <section>
             <strong className='currencyValue'>
-              {accumulatorTotalItem?.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+              {accumulatorTotalItem?.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
             </strong>
           </section>
           <section className='countSum'>
