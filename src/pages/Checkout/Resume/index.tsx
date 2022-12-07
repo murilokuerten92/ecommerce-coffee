@@ -24,7 +24,7 @@ const newAddressFormValidationSchema = zod.object({
 
 type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 
-const FREIGHT_VALUE = 3.50
+
 
 export function Resume() {
 
@@ -34,7 +34,7 @@ export function Resume() {
 
   const theme = useTheme();
 
-  const { items, removeFromCart, updateCoffeeAmountFromCart } = useCart();
+  const { items, removeFromCart, updateCoffeeAmountFromCart, cartSubTotal, cartTotal, freight } = useCart();
 
   const { register, handleSubmit, formState: { errors }, setValue, watch, control } = useForm<NewAddressFormData>({
     resolver: zodResolver(newAddressFormValidationSchema),
@@ -81,9 +81,7 @@ export function Resume() {
     removeFromCart(data)
   }
 
-  const cartSubTotal = items.reduce((accumulator, sum) => accumulator + (sum.total || sum.price), 0)
 
-  const cartTotal = cartSubTotal + FREIGHT_VALUE;
 
   return (
     <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
@@ -222,7 +220,7 @@ export function Resume() {
                 {cartSubTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
               </S.ResumeInfo>
               <S.ResumeInfo>
-                $ 3,50
+                {freight.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
               </S.ResumeInfo>
               <S.ProductTotal>
                 {cartTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
