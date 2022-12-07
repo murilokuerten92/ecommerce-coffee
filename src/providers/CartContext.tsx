@@ -10,13 +10,19 @@ export interface CartContextType {
   addToCart: (data: CoffeeType) => void;
   removeFromCart: (data: Cart) => void;
   updateCoffeeAmountFromCart: (type: 'add' | 'remove', coffeeId: number) => void;
+  cartTotal: number;
+  cartSubTotal: number;
+  freight: number;
 }
 
 export const CartContextDefaultValues = {
   items: [],
   addToCart: () => null,
   removeFromCart: () => null,
-  updateCoffeeAmountFromCart: () => null
+  updateCoffeeAmountFromCart: () => null,
+  cartTotal: 0,
+  cartSubTotal: 0,
+  freight: 0,
 }
 
 export const CartContext = createContext<CartContextType>(CartContextDefaultValues);
@@ -24,6 +30,8 @@ export const CartContext = createContext<CartContextType>(CartContextDefaultValu
 interface CartContextProvidersProps {
   children: ReactNode
 }
+
+const FREIGHT_VALUE = 3.50
 
 export function CartContextProvider({
   children
@@ -86,8 +94,14 @@ export function CartContextProvider({
     })
   }
 
+  const cartSubTotal = items.reduce((accumulator, sum) => accumulator + (sum.total || sum.price), 0)
+
+  const cartTotal = cartSubTotal + FREIGHT_VALUE;
+
+  const freight = FREIGHT_VALUE;
+
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart, updateCoffeeAmountFromCart }}>
+    <CartContext.Provider value={{ items, addToCart, removeFromCart, updateCoffeeAmountFromCart, cartTotal, cartSubTotal, freight }}>
       {children}
     </CartContext.Provider>
   )
