@@ -7,12 +7,11 @@ import { BrowserRouter } from 'react-router-dom'
 import { Header } from '.'
 import items from './mock'
 
-
 describe('Header component', () => {
   it('should be render location text', () => {
     render(<Header />, { wrapper: BrowserRouter })
 
-    expect(screen.getByText('Porto Alegre, RS')).toBeInTheDocument();
+    expect(screen.queryByTestId('location')).not.toBeInTheDocument();
   })
 
   it('should redirect when click cart button', () => {
@@ -53,8 +52,6 @@ describe('Header component', () => {
     }
 
     const ret = cartReducer(cartState, action)
-
-
 
     render(<Header />, { ret, wrapper: BrowserRouter } as any)
 

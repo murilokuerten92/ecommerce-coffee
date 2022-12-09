@@ -22,7 +22,7 @@ export function Header() {
 
         {currentLocation && <S.Location>
           <S.PinLogo />
-          <S.LocationText>
+          <S.LocationText data-testid='location'>
             {currentLocation ?? 'Location'}
           </S.LocationText>
         </S.Location>}
