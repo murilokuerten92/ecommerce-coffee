@@ -54,7 +54,7 @@ export function Success() {
                   Payment on delivery
                 </span>
                 <strong>
-                  Cartão de Crédito
+                  Credit Card
                 </strong>
               </S.ItemInfo>
             </S.Item>
