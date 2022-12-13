@@ -2,6 +2,7 @@ import * as S from './styles';
 import { CoffeeType } from '@/@types/mockes';
 import { useCoffee } from '@/providers/CoffeeContext'
 import { useCart } from '@/providers/CartContext';
+import { Badge } from '@/components/Badge';
 
 export function CardCoffee({ ...coffee }: CoffeeType) {
 
@@ -56,7 +57,10 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
             </S.CountBox>
 
             <S.CartBox type='submit' onClick={() => handleCreateNewItem(coffee)}>
-              <S.CartIcon icon={items?.some(item => item.id === coffee.id) ? 'cartEmpty' : 'cartHome'} />
+              {items?.map(item => item.id === coffee.id && <Badge>
+                {item.amount}
+              </Badge>)}
+              <S.CartIcon icon={'cartHome'} />
             </S.CartBox>
           </section>
         </S.Footer>
