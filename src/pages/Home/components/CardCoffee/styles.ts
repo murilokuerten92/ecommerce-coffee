@@ -95,6 +95,7 @@ export const CartBox = styled.button`
     border: none;
     outline: none;
     cursor: pointer;
+    position: relative;
     &:focus {
       outline: none !important;
     box-shadow: none !important;
