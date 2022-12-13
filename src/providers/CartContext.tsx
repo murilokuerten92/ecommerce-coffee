@@ -52,13 +52,21 @@ export function CartContextProvider({
     })
 
     if (hasItemOnCart) {
+      dispatch({
+        type: ActionTypes.UPDATE_ITEM,
+        payload: {
+          type: 'add',
+          coffeeId: data.id
+        }
+      })
+      toast.success('Item adicionado ao carrinho')
       return
     }
 
     const newItem: Cart = {
       id: data.id,
       title: data.name,
-      amount: data.amount,
+      amount: 1,
       price: data.price,
       img: data.img,
       total: data.total
