@@ -6,7 +6,7 @@ import { Badge } from '@/components/Badge';
 
 export function CardCoffee({ ...coffee }: CoffeeType) {
 
-  const { updateCoffeeAmount, coffees } = useCoffee()
+  const { updateCoffeeAmount } = useCoffee()
   const { addToCart, items } = useCart();
 
   function handleUpdateAmount(type: 'remove' | 'add', coffeeId: number) {
