@@ -71,6 +71,7 @@ export function Resume() {
 
   function handleCreateNewAddress(data: NewAddressFormData) {
     console.log(data)
+    navigate('success')
   }
 
   function handleUpdateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
