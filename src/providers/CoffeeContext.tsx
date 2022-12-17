@@ -1,22 +1,27 @@
-import { createContext, ReactNode, useState, useEffect, useContext } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useState,
+  useEffect,
+  useContext,
+} from 'react'
 import { CoffeeType } from '@/@types/mockes'
 import { coffeesApi } from '@/constants/datas'
 
 interface CoffeeContextType {
-  coffees: CoffeeType[];
-  updateCoffeeAmount: (type: 'add' | 'remove', coffeeId: number) => void;
+  coffees: CoffeeType[]
+  updateCoffeeAmount: (type: 'add' | 'remove', coffeeId: number) => void
 }
 
-export const CoffeeContext = createContext({} as CoffeeContextType);
+export const CoffeeContext = createContext({} as CoffeeContextType)
 
 interface CoffeeContextProvidersProps {
   children: ReactNode
 }
 
 export function CoffeeContextProvider({
-  children
+  children,
 }: CoffeeContextProvidersProps) {
-
   const [coffees, setCoffees] = useState<CoffeeType[]>([])
 
   useEffect(() => {
@@ -26,16 +31,19 @@ export function CoffeeContextProvider({
   }, [])
 
   function updateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
-
-    const coffeesParsed = coffees?.map(coffeItem => {
+    const coffeesParsed = coffees?.map((coffeItem) => {
       if (coffeeId === coffeItem.id) {
-        const AddRemoveItemAmount = type === 'add' ? coffeItem.amount + 1 : coffeItem.amount - 1;
-        const updatedItem = { ...coffeItem, amount: AddRemoveItemAmount, total: coffeItem.price * AddRemoveItemAmount }
+        const AddRemoveItemAmount =
+          type === 'add' ? coffeItem.amount + 1 : coffeItem.amount - 1
+        const updatedItem = {
+          ...coffeItem,
+          amount: AddRemoveItemAmount,
+          total: coffeItem.price * AddRemoveItemAmount,
+        }
         return { ...updatedItem }
       }
       return coffeItem
     })
-
 
     return setCoffees(coffeesParsed)
   }
@@ -48,7 +56,7 @@ export function CoffeeContextProvider({
 }
 
 export function useCoffee() {
-  const context = useContext(CoffeeContext);
+  const context = useContext(CoffeeContext)
 
   return context
 }

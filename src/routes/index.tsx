@@ -1,16 +1,16 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 import { Home } from '@/pages/Home'
 import { Resume } from '@/pages/Checkout/Resume'
 import { Success } from '@/pages/Success'
 
-function CustomRoute({ isPrivate, ...rest }: any) {
+function CustomRoute({ ...rest }: any) {
   /* const authenticated = true;
- 
+
    if (isPrivate && !authenticated) {
      return <Navigate to="/login" />
    }
- 
+
    if (authenticated && rest.path === "/login") {
      return <Navigate to="/dashboard" />
    }

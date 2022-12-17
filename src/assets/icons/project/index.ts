@@ -31,7 +31,7 @@ const icons = {
   debitCard,
   money,
   trash,
-  cartEmpty
+  cartEmpty,
 }
 
 export default icons

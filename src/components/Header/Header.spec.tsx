@@ -1,40 +1,34 @@
-import { Cart } from '@/@types/mockes'
-import { CartContextDefaultValues } from '@/providers/CartContext'
 import { ActionTypes } from '@/reducers/carts/actions'
 import { cartReducer } from '@/reducers/carts/reducers'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { Header } from '.'
-import items from './mock'
 
 describe('Header component', () => {
   it('should be render location text', () => {
     render(<Header />, { wrapper: BrowserRouter })
 
-    expect(screen.queryByTestId('location')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('location')).not.toBeInTheDocument()
   })
 
   it('should redirect when click cart button', () => {
-
-    render(
-      <Header />, { wrapper: BrowserRouter }
-    );
+    render(<Header />, { wrapper: BrowserRouter })
 
     const cartButton = screen.getByTestId('cartButton')
 
     fireEvent.click(cartButton)
 
-    expect(window.location.pathname).toBe('/checkout');
+    expect(window.location.pathname).toBe('/checkout')
   })
 
   it('should not render when cart does not value', () => {
     render(<Header />, { wrapper: BrowserRouter })
 
-    expect(screen.queryByTestId('cartItems')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('cartItems')).not.toBeInTheDocument()
   })
   it('should render when cart has value', async () => {
     const cartState = {
-      items: []
+      items: [],
     }
 
     const action = {
@@ -46,9 +40,9 @@ describe('Header component', () => {
           amount: 2,
           price: 5,
           img: '',
-          total: 10
-        }
-      }
+          total: 10,
+        },
+      },
     }
 
     const ret = cartReducer(cartState, action)
@@ -60,4 +54,3 @@ describe('Header component', () => {
     expect(screen.getByText(/1/)).toBeInTheDocument()
   })
 })
-
