@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { Icon } from '@/icon/icon';
+import { Icon } from '@/icon/icon'
 
 type IconProps = {
-  icon: string;
+  icon: string
 }
 
 export const Container = styled.main`
@@ -16,13 +16,11 @@ export const Container = styled.main`
     margin-top: 0rem;
     column-gap: 0rem;
     flex-direction: column;
-    align-items:center;
- }
-`;
-
-export const InfoSection = styled.section`
-  
+    align-items: center;
+  }
 `
+
+export const InfoSection = styled.section``
 
 export const Title = styled.h1`
   font-size: 3.5rem;
@@ -35,7 +33,7 @@ export const Title = styled.h1`
     font-size: 1.6rem;
     line-height: 2rem;
     text-align: center;
- }
+  }
 `
 
 export const SubTitle = styled.h2`
@@ -50,8 +48,8 @@ export const SubTitle = styled.h2`
     line-height: 2rem;
     text-align: center;
     padding: 0 2rem;
- }
-`;
+  }
+`
 
 export const Faq = styled.div`
   display: grid;
@@ -62,20 +60,18 @@ export const Faq = styled.div`
   margin-top: 3rem;
 
   @media (max-width: 460px) {
-     grid-template-columns: 1fr;
-     margin-top: 2rem;
-     align-self: center;
- }
-`;
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    align-self: center;
+  }
+`
 
-export const FaqColumn = styled.div`
-
-  `;
+export const FaqColumn = styled.div``
 
 export const FaqChildren = styled.div`
-   display: flex;
-   align-items: center;
-   column-gap: 1rem;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
 `
 
 export const Box = styled.div`
@@ -96,18 +92,14 @@ export const FaqText = styled.span`
   color: ${({ theme }) => theme.text_accent};
 `
 
-export const InfoImage = styled.section`
-`
+export const InfoImage = styled.section``
 
 export const CoffeeLogo = styled.img`
-
- @media (max-width: 960px) {
-    display: none
- }
+  @media (max-width: 960px) {
+    display: none;
+  }
 `
 
-export const FaqIcon = styled(Icon).attrs<IconProps>(props => ({
-  icon: props.icon ?? null
-}))`
-
-`;
+export const FaqIcon = styled(Icon).attrs<IconProps>((props) => ({
+  icon: props.icon ?? null,
+}))``

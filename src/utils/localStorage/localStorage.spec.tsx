@@ -7,7 +7,7 @@ describe('getStorageItem()', () => {
   it('should return the item from localStorage', () => {
     window.localStorage.setItem(
       'COFFEELAB_cartItems',
-      JSON.stringify(['1', '2'])
+      JSON.stringify(['1', '2']),
     )
 
     expect(getStorageItem('cartItems')).toStrictEqual(['1', '2'])
@@ -22,7 +22,7 @@ describe('setStorageItem()', () => {
     setStorageItem('cartItems', ['1', '2'])
 
     expect(window.localStorage.getItem('COFFEELAB_cartItems')).toStrictEqual(
-      JSON.stringify(['1', '2'])
+      JSON.stringify(['1', '2']),
     )
   })
 })
