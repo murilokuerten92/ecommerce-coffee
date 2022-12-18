@@ -51,7 +51,7 @@ export function Success() {
           </S.CardContent>
         </S.Card>
 
-        <img src={Delivery} alt="moto do delivery" />
+        <img src={Delivery} alt="motorcycle from delivery" />
       </S.Box>
     </S.Container>
   )
