@@ -11,7 +11,8 @@ export const Container = styled.form`
   grid-template-columns: 1fr 448px;
   column-gap: 2rem;
   @media (max-width: 960px) {
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
   }
 `
 
@@ -38,6 +39,7 @@ export const Row = styled.div`
 
   @media (max-width: 960px) {
     flex-direction: column;
+    row-gap: 1rem;
   }
 `
 
@@ -65,6 +67,9 @@ export const ProductsRow = styled.div`
   column-gap: 0.6rem;
   justify-content: space-between;
   margin-bottom: 12px;
+  @media (max-width: 960px) {
+    column-gap: 1.4rem;
+  }
 `
 
 export const Border = styled.div`
@@ -97,6 +102,12 @@ export const ProductPrice = styled.h1`
   font-weight: bold;
   align-self: flex-start;
   margin-top: -5px;
+
+  @media (max-width: 960px) {
+    font-size: 0.875rem;
+    margin-top: -2px;
+    margin-left: -54px;
+  }
 `
 
 export const ProductTotal = styled.strong`
@@ -174,6 +185,9 @@ export const HeaderTitle = styled.h2`
   font-size: 1rem;
   font-family: 'Roboto';
   font-weight: 400;
+  @media (max-width: 960px) {
+    font-size: 0.875rem;
+  }
 `
 
 export const ResumeInfo = styled.p`
@@ -218,6 +232,10 @@ export const PaymentMethodTitle = styled.span`
   font-size: 0.8rem;
   font-family: 'Roboto';
   font-weight: 400;
+
+  @media (max-width: 960px) {
+    font-size: 0.7rem;
+  }
 `
 
 export const AddressInput = styled.input`
@@ -240,6 +258,9 @@ export const AddressInput = styled.input`
 
 export const AddressInputPattern = styled(AddressInput)`
   width: 14rem;
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 `
 
 export const AddressStreet = styled(AddressInput)`
@@ -248,6 +269,9 @@ export const AddressStreet = styled(AddressInput)`
 
 export const AddressState = styled(AddressInput)`
   width: 3.6rem;
+  @media (max-width: 960px) {
+    width: 100%;
+  }
 `
 
 export const AddressCity = styled(AddressInput)`
