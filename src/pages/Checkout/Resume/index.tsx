@@ -54,6 +54,8 @@ export function Resume() {
       },
     })
 
+  const watchFields = watch(['zipCode', 'street', 'district', 'city', 'uf'])
+
   useEffect(() => {
     const zipCodeParsed = watch('zipCode').replace('-', '')
 
@@ -68,7 +70,8 @@ export function Resume() {
           setValue('uf', response.uf)
         })
     }
-  }, [setValue, watch])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [watch('zipCode')])
 
   function handleChangePaymentMethods(selectedPaymentMethod: string) {
     setPaymentMethodSelected(selectedPaymentMethod)
@@ -85,6 +88,14 @@ export function Resume() {
 
   function handleItemDelete(data: Cart) {
     removeFromCart(data)
+  }
+
+  function isValidFields() {
+    return (
+      paymentMethodSelected === '' ||
+      watchFields.some((item) => item === '') ||
+      items.length === 0
+    )
   }
 
   return (
@@ -270,7 +281,7 @@ export function Resume() {
           </S.ResumeRow>
           <S.ConfirmButton
             onClick={() => navigate('/success')}
-            disabled={paymentMethodSelected === ''}
+            disabled={isValidFields()}
             type="submit"
           >
             ORDER CONFIRM
