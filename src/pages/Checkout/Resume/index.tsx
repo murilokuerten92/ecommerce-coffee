@@ -15,8 +15,8 @@ import { useCart } from '@/providers/CartContext'
 const newAddressFormValidationSchema = zod.object({
   zipCode: zod.string().min(7, 'zip-code-required'),
   street: zod.string().min(5, 'strict required'),
-  number: zod.string().min(1, 'number required'),
-  complement: zod.string().min(1, 'Complement required'),
+  number: zod.string(),
+  complement: zod.string(),
   district: zod.string().min(2, 'District required'),
   city: zod.string().min(5, 'City required'),
   uf: zod.string().min(2, 'State required'),
@@ -78,8 +78,7 @@ export function Resume() {
   }
 
   function handleCreateNewAddress(data: NewAddressFormData) {
-    console.log(data)
-    navigate('success')
+    navigate('/success', { state: { data, paymentMethodSelected } })
   }
 
   function handleUpdateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
@@ -279,11 +278,7 @@ export function Resume() {
               </S.ProductTotal>
             </S.ResumeColumnPrice>
           </S.ResumeRow>
-          <S.ConfirmButton
-            onClick={() => navigate('/success')}
-            disabled={isValidFields()}
-            type="submit"
-          >
+          <S.ConfirmButton disabled={isValidFields()} type="submit">
             ORDER CONFIRM
           </S.ConfirmButton>
         </S.ResumeContent>
