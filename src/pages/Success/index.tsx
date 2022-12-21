@@ -1,9 +1,13 @@
 import * as S from './styles'
 import Delivery from '@/assets/images/delivery.png'
 import { useTheme } from 'styled-components'
+import { useLocation } from 'react-router-dom'
 
 export function Success() {
   const theme = useTheme()
+
+  const location = useLocation()
+  const { data } = location.state
 
   return (
     <S.Container>
@@ -26,7 +30,8 @@ export function Success() {
               <S.ItemInfo>
                 <span>Delivery on</span>
                 <strong>
-                  Rua João Daniel Martinelli, 102 Farrapos - Porto Alegre, RS
+                  Rua {data?.street}, {data?.number} {data?.district} -{' '}
+                  {data?.city}, {data?.uf}
                 </strong>
               </S.ItemInfo>
             </S.Item>
@@ -45,7 +50,7 @@ export function Success() {
               </S.BoxItem>
               <S.ItemInfo>
                 <span>Payment on delivery</span>
-                <strong>Credit Card</strong>
+                <strong>{location?.state?.paymentMethodSelected}</strong>
               </S.ItemInfo>
             </S.Item>
           </S.CardContent>
