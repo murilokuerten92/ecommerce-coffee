@@ -1,7 +1,8 @@
 import * as S from './styles'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation as useLoc } from 'react-router-dom'
 import { useCart } from '@/providers/CartContext'
 import { useLocation } from '@/hooks/useLocation'
+
 import { Badge } from '../Badge'
 
 export function Header() {
@@ -10,6 +11,8 @@ export function Header() {
   const { items } = useCart()
 
   const { currentLocation } = useLocation()
+
+  const location = useLoc()
 
   const hasItemsOnCart = items?.length > 0
 
@@ -30,17 +33,19 @@ export function Header() {
             </S.LocationText>
           </S.Location>
         )}
-        <S.Cart
-          data-testid="cartButton"
-          onClick={() => hasItemsOnCart && navigate('/checkout')}
-        >
-          {hasItemsOnCart && (
-            <Badge data-testid="cartItems" aria-label="Cart Items">
-              {items?.length}
-            </Badge>
-          )}
-          <S.CartLogo aria-label="Shopping Cart" />
-        </S.Cart>
+        {location.pathname !== '/success' && (
+          <S.Cart
+            data-testid="cartButton"
+            onClick={() => hasItemsOnCart && navigate('/checkout')}
+          >
+            {hasItemsOnCart && (
+              <Badge data-testid="cartItems" aria-label="Cart Items">
+                {items?.length}
+              </Badge>
+            )}
+            <S.CartLogo aria-label="Shopping Cart" />
+          </S.Cart>
+        )}
       </S.UserSection>
     </S.Container>
   )
