@@ -11,6 +11,7 @@ import { coffeesApi } from '@/constants/datas'
 interface CoffeeContextType {
   coffees: CoffeeType[]
   updateCoffeeAmount: (type: 'add' | 'remove', coffeeId: number) => void
+  isLoading: boolean
 }
 
 export const CoffeeContext = createContext({} as CoffeeContextType)
@@ -24,10 +25,13 @@ export function CoffeeContextProvider({
 }: CoffeeContextProvidersProps) {
   const [coffees, setCoffees] = useState<CoffeeType[]>([])
 
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     setTimeout(() => {
       setCoffees(coffeesApi)
-    }, 1000)
+      setIsLoading(false)
+    }, 3000)
   }, [])
 
   function updateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
@@ -49,7 +53,7 @@ export function CoffeeContextProvider({
   }
 
   return (
-    <CoffeeContext.Provider value={{ coffees, updateCoffeeAmount }}>
+    <CoffeeContext.Provider value={{ coffees, updateCoffeeAmount, isLoading }}>
       {children}
     </CoffeeContext.Provider>
   )
