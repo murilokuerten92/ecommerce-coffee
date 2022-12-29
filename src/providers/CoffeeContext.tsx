@@ -28,10 +28,17 @@ export function CoffeeContextProvider({
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    let isCancelled = false
     setTimeout(() => {
-      setCoffees(coffeesApi)
-      setIsLoading(false)
+      if (!isCancelled) {
+        setCoffees(coffeesApi)
+        setIsLoading(false)
+      }
     }, 3000)
+
+    return () => {
+      isCancelled = true
+    }
   }, [])
 
   function updateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
