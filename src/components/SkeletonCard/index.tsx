@@ -15,8 +15,7 @@ export function SkeletonCards({ coffees }: Props) {
           <S.Card key={i}>
             <S.CardContent>
               <Skeleton circle width={40} height={40} />
-              <Skeleton circle width={40} height={40} />
-              <Skeleton circle width={40} height={40} />
+
               <S.Car>
                 <Skeleton count={4} />
               </S.Car>
