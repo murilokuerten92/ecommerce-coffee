@@ -25,7 +25,7 @@ const newAddressFormValidationSchema = zod.object({
 type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 
 export function Resume() {
-  const [paymentMethodSelected, setPaymentMethodSelected] = useState('')
+  const [paymentMethodId, setPaymentMethodId] = useState('')
 
   const navigate = useNavigate()
 
@@ -74,11 +74,11 @@ export function Resume() {
   }, [watch('zipCode')])
 
   function handleChangePaymentMethods(selectedPaymentMethod: string) {
-    setPaymentMethodSelected(selectedPaymentMethod)
+    setPaymentMethodId(selectedPaymentMethod)
   }
 
   function handleCreateNewAddress(data: NewAddressFormData) {
-    navigate('/success', { state: { data, paymentMethodSelected } })
+    navigate('/success', { state: { data, paymentMethodId } })
   }
 
   function handleUpdateCoffeeAmount(type: 'add' | 'remove', coffeeId: number) {
@@ -91,7 +91,7 @@ export function Resume() {
 
   function isValidFields() {
     return (
-      paymentMethodSelected === '' ||
+      paymentMethodId === '' ||
       watchFields.some((item) => item === '') ||
       items.length === 0
     )
@@ -182,7 +182,7 @@ export function Resume() {
             <S.RowPaymentMethods>
               {paymentMethods.map((paymentMethod: PaymentMethods) => (
                 <S.PaymentMethodCard
-                  active={paymentMethod.description === paymentMethodSelected}
+                  active={paymentMethod.description === paymentMethodId}
                   key={paymentMethod.id}
                   onClick={() =>
                     handleChangePaymentMethods(paymentMethod.description)
