@@ -15,7 +15,7 @@ export function Home() {
       <Presentation />
       <h1 className="CoffeeTitle">Our Coffees</h1>
       <S.SectionCards>
-        {isLoading && <SkeletonCards coffees={12} />}
+        {isLoading && <SkeletonCards coffees={14} />}
         {coffees?.map((coffee: CoffeeType) => (
           <CardCoffee key={coffee.id} {...coffee} />
         ))}
