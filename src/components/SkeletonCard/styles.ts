@@ -14,10 +14,10 @@ export const CardContent = styled.section`
 `
 
 export const Car = styled.section`
-  flex: 1;
+  width: 50%;
 `
 
-export const CoffeeImage = styled.img`
+export const CoffeeImage = styled.div`
   margin-top: -40px;
 `
 
@@ -36,25 +36,18 @@ export const TagsCoffeeType = styled.header`
 `
 
 export const Tags = styled.section`
-  display: flex;
+  width: 60%;
   column-gap: 0.2rem;
   margin-top: 12px;
 `
 
 export const Title = styled.h1`
-  font-weight: bold;
-  font-family: 'Baloo 2';
-  font-size: 1.2rem;
-  color: ${({ theme }) => theme.primary_text};
+  width: 70%;
   margin-top: 16px;
 `
 
 export const SubTitle = styled.h2`
-  font-weight: 400;
-  font-family: 'Roboto';
-  font-size: 0.875rem;
-  color: ${({ theme }) => theme.text_light};
-  text-align: center;
+  width: 80%;
   margin-top: 8px;
 `
 
@@ -111,25 +104,8 @@ export const CartBox = styled.button`
 export const Footer = styled.footer`
   display: flex;
   margin-top: 24px;
+  column-gap: 2rem;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-
-  .countSum {
-    display: flex;
-    column-gap: 0.6rem;
-  }
-
-  .currencySymbol {
-    font-weight: 400;
-    font-size: 0.8rem;
-    margin-right: 0.2rem;
-    margin-top: 4px;
-  }
-
-  .currencyValue {
-    font-weight: bold;
-    font-size: 1.4rem;
-    font-family: 'Baloo 2';
-  }
 `

@@ -14,28 +14,29 @@ export function SkeletonCards({ coffees }: Props) {
         .map((_, i) => (
           <S.Card key={i}>
             <S.CardContent>
-              <Skeleton circle width={40} height={40} />
-
+              <S.CoffeeImage>
+                <Skeleton circle width={100} height={100} />
+              </S.CoffeeImage>
               <S.Car>
-                <Skeleton count={4} />
+                <Skeleton count={1} />
               </S.Car>
 
-              <S.Tags></S.Tags>
-              <S.Title></S.Title>
-              <S.SubTitle></S.SubTitle>
+              <S.Tags>
+                <Skeleton count={1} />
+              </S.Tags>
+              <S.Title>
+                <Skeleton count={1} />
+              </S.Title>
+              <S.SubTitle>
+                <Skeleton count={1} />
+              </S.SubTitle>
               <S.Footer>
-                <section>
-                  <strong className="currencyValue"></strong>
-                </section>
-                <section className="countSum">
-                  <S.CountBox>
-                    <a className="count" type="submit"></a>
-                    <span className="countText"></span>
-                    <a className="count" type="submit"></a>
-                  </S.CountBox>
-
-                  <S.CartBox type="submit"></S.CartBox>
-                </section>
+                <S.Title>
+                  <Skeleton count={1} />
+                </S.Title>
+                <S.Title>
+                  <Skeleton count={1} />
+                </S.Title>
               </S.Footer>
             </S.CardContent>
           </S.Card>

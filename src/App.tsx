@@ -11,7 +11,7 @@ import { SkeletonTheme } from 'react-loading-skeleton'
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <SkeletonTheme baseColor="#202020" highlightColor="#444">
+      <SkeletonTheme baseColor="#ebebeb" highlightColor="#f5f5f5">
         <BrowserRouter>
           <CoffeeContextProvider>
             <CartContextProvider>
