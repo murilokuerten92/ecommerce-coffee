@@ -6,5 +6,5 @@ interface BadgeProps {
 }
 
 export function Badge({ children }: BadgeProps) {
-  return <BoxCartLength>{children}</BoxCartLength>
+  return <BoxCartLength data-testid="badgeId">{children}</BoxCartLength>
 }
