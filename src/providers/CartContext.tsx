@@ -21,7 +21,7 @@ export interface CartContextType {
   freight: number
 }
 
-export const CartContextDefaultValues = {
+export const cartContextDefaultValues = {
   items: [],
   addToCart: () => null,
   removeFromCart: () => null,
@@ -32,7 +32,7 @@ export const CartContextDefaultValues = {
 }
 
 export const CartContext = createContext<CartContextType>(
-  CartContextDefaultValues,
+  cartContextDefaultValues,
 )
 
 interface CartContextProvidersProps {

@@ -3,12 +3,19 @@ import { cartReducer } from '@/reducers/carts/reducers'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { Header } from '.'
+// import { cartContextDefaultValues } from '@/providers/CartContext'
 
 describe('Header component', () => {
   it('should be render location text', () => {
-    render(<Header />, { wrapper: BrowserRouter })
+    // const cartProviderProps = {
+    //   ...cartContextDefaultValues,
+    // }
+    render(<Header />, {
+      wrapper: BrowserRouter,
+      // cartProviderProps,
+    })
 
-    expect(screen.queryByTestId('location')).not.toBeInTheDocument()
+    expect(screen.queryAllByTestId('location')).not.toBeInTheDocument()
   })
 
   it('should redirect when click cart button', () => {
