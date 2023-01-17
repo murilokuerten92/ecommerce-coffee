@@ -1,5 +1,5 @@
 # store-cart-challenge
-<h1>Coffee ecommerce</h1>
+<img width="879"  alt="Ecommerce Site" src="https://user-images.githubusercontent.com/63013634/212879949-51aeaa25-b755-457b-b0c3-09dc3a20c0b0.PNG">
 
 > Status: Developing ⚠️
 
