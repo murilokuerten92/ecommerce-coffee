@@ -50,7 +50,7 @@ export function Success() {
               </S.BoxItem>
               <S.ItemInfo>
                 <span>Payment on delivery</span>
-                <strong>{location?.state?.paymentMethodSelected}</strong>
+                <strong>{location?.state?.paymentMethodId}</strong>
               </S.ItemInfo>
             </S.Item>
           </S.CardContent>

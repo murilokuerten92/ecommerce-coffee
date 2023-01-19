@@ -19,6 +19,7 @@ export interface CartContextType {
   cartTotal: number
   cartSubTotal: number
   freight: number
+  clearCart: () => void
 }
 
 export const cartContextDefaultValues = {
@@ -29,6 +30,7 @@ export const cartContextDefaultValues = {
   cartTotal: 0,
   cartSubTotal: 0,
   freight: 0,
+  clearCart: () => null,
 }
 
 export const CartContext = createContext<CartContextType>(
@@ -112,6 +114,13 @@ export function CartContextProvider({ children }: CartContextProvidersProps) {
     })
   }
 
+  function clearCart() {
+    dispatch({
+      type: ActionTypes.CLEAN_ITEMS,
+      payload: {},
+    })
+  }
+
   const cartSubTotal = items.reduce(
     (accumulator, sum) => accumulator + (sum.total || sum.price),
     0,
@@ -131,6 +140,7 @@ export function CartContextProvider({ children }: CartContextProvidersProps) {
         cartTotal,
         cartSubTotal,
         freight,
+        clearCart,
       }}
     >
       {children}

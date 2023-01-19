@@ -38,6 +38,7 @@ export function Resume() {
     cartSubTotal,
     cartTotal,
     freight,
+    clearCart,
   } = useCart()
 
   const { register, handleSubmit, setValue, watch } =
@@ -78,6 +79,7 @@ export function Resume() {
   }
 
   function handleCreateNewAddress(data: NewAddressFormData) {
+    clearCart()
     navigate('/success', { state: { data, paymentMethodId } })
   }
 

@@ -11,6 +11,8 @@ export enum ActionTypes {
   UPDATE_ITEM = 'UPDATE_ITEM',
   // eslint-disable-next-line no-unused-vars
   DELETE_ITEM = 'DELETE_ITEM',
+  // eslint-disable-next-line no-unused-vars
+  CLEAN_ITEMS = 'CLEAN_ITEMS',
 }
 
 export interface CartState {
@@ -66,6 +68,9 @@ export function cartReducer(state: CartState, action: any) {
       return produce(state, (draft) => {
         draft.items.splice(currentItemIndex, 1)
       })
+    }
+    case ActionTypes.CLEAN_ITEMS: {
+      return initialState
     }
     default:
       return state

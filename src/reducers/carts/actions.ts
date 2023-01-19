@@ -7,6 +7,8 @@ export enum ActionTypes {
   UPDATE_ITEM = 'UPDATE_ITEM',
   // eslint-disable-next-line no-unused-vars
   DELETE_ITEM = 'DELETE_ITEM',
+  // eslint-disable-next-line no-unused-vars
+  CLEAN_ITEMS = 'CLEAN_ITEMS',
 }
 
 export function addNewItemAction(newItem: Cart) {
@@ -33,5 +35,12 @@ export function deleteItemAction(newItem: Cart) {
     payload: {
       newItem,
     },
+  }
+}
+
+export function cleanItemAction() {
+  return {
+    type: ActionTypes.CLEAN_ITEMS,
+    payload: {},
   }
 }
