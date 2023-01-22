@@ -212,6 +212,7 @@ export function Resume() {
                   <S.ProductsRow>
                     <S.CountBox>
                       <button
+                        type="button"
                         className="count"
                         onClick={() =>
                           product.amount > 1 &&
@@ -222,6 +223,7 @@ export function Resume() {
                       </button>
                       <span className="countText">{product.amount}</span>
                       <button
+                        type="button"
                         className="count"
                         onClick={() =>
                           handleUpdateCoffeeAmount('add', product.id)
@@ -231,7 +233,10 @@ export function Resume() {
                       </button>
                     </S.CountBox>
                     <S.CountBox>
-                      <button onClick={() => handleItemDelete(product)}>
+                      <button
+                        type="button"
+                        onClick={() => handleItemDelete(product)}
+                      >
                         <Icon icon="trash" />
                         <S.PaymentMethodTitle>REMOVE</S.PaymentMethodTitle>
                       </button>
