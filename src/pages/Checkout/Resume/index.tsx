@@ -211,7 +211,7 @@ export function Resume() {
                   <S.HeaderTitle>{product.title}</S.HeaderTitle>
                   <S.ProductsRow>
                     <S.CountBox>
-                      <button
+                      <a
                         type="button"
                         className="count"
                         onClick={() =>
@@ -220,9 +220,9 @@ export function Resume() {
                         }
                       >
                         <S.RemoveIcon />
-                      </button>
+                      </a>
                       <span className="countText">{product.amount}</span>
-                      <button
+                      <a
                         type="button"
                         className="count"
                         onClick={() =>
@@ -230,7 +230,7 @@ export function Resume() {
                         }
                       >
                         <S.AddIcon />
-                      </button>
+                      </a>
                     </S.CountBox>
                     <S.CountBox>
                       <button
