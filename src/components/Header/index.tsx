@@ -1,7 +1,7 @@
 import * as S from './styles'
-import { useNavigate, useLocation as useLoc } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useCart } from '@/providers/CartContext'
-import { useLocation } from '@/hooks/useLocation'
+import { useUserLocation } from '@/hooks/useLocation'
 
 import { Badge } from '../Badge'
 
@@ -10,9 +10,9 @@ export function Header() {
 
   const { items } = useCart()
 
-  const { currentLocation } = useLocation()
+  const { currentLocation } = useUserLocation()
 
-  const location = useLoc()
+  const location = useLocation()
 
   const hasItemsOnCart = items?.length > 0
 
