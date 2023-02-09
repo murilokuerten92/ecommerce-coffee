@@ -95,6 +95,8 @@ export const FaqText = styled.span`
 export const InfoImage = styled.section``
 
 export const CoffeeLogo = styled.img`
+  max-width: 476px;
+  max-height: 360px;
   @media (max-width: 960px) {
     display: none;
   }
