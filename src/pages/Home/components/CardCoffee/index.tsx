@@ -62,7 +62,10 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
 
             <S.CartBox
               type="submit"
+              id={coffee.name}
               name="add product"
+              value={coffee.name}
+              aria-label={coffee.name}
               onClick={() => handleCreateNewItem(coffee)}
             >
               {items?.map(
