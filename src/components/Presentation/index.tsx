@@ -25,7 +25,12 @@ export function Presentation() {
         </S.Faq>
       </S.InfoSection>
       <S.InfoImage>
-        <S.CoffeeLogo src={coffeeLogo} alt="logo coffee" />
+        <S.CoffeeLogo
+          width="476px"
+          height="360px"
+          src={coffeeLogo}
+          alt="logo coffee"
+        />
       </S.InfoImage>
     </S.Container>
   )
