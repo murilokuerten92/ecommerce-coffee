@@ -36,7 +36,9 @@ export function Header() {
         {location.pathname !== '/success' && (
           <S.Cart
             data-testid="cartButton"
-            name="access checkout"
+            name="accessCheckout"
+            id="accessCheckout"
+            aria-label="accessCheckout"
             onClick={() => hasItemsOnCart && navigate('/checkout')}
           >
             {hasItemsOnCart && (
