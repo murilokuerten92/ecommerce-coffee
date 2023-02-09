@@ -20,6 +20,8 @@ export const CardContent = styled.section`
 
 export const CoffeeImage = styled.img`
   margin-top: -40px;
+  max-width: 120px;
+  max-height: 120px;
 `
 
 export const TagsCoffeeType = styled.header`
