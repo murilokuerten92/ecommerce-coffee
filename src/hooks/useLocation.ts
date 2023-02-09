@@ -6,7 +6,7 @@ export function useLocation() {
 
   useEffect(() => {
     let isCancelled = false
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       if (!isCancelled) {
         setCoordinates({
           latitude: position.coords.latitude,
