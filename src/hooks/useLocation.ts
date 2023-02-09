@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export function useLocation() {
+export function useUserLocation() {
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 })
   const [currentLocation, setCurrentLocation] = useState('')
 
