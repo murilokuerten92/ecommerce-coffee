@@ -6,12 +6,21 @@ import { CardCoffee } from './components/CardCoffee'
 import { CoffeeType } from '@/@types/mockes'
 import { useCoffee } from '@/providers/CoffeeContext'
 import { SkeletonCards } from '@/components/SkeletonCard'
+import { Helmet } from 'react-helmet'
 
 export function Home() {
   const { coffees, isLoading } = useCoffee()
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" name="Home" content="All coffees" />
+        <title>Home</title>
+        <link
+          rel="canonical"
+          href="https://coffee-ecommerce-prime.netlify.app/"
+        />
+      </Helmet>
       <Presentation />
       <h1 className="CoffeeTitle">Our Coffees</h1>
       <S.SectionCards>

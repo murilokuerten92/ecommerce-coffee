@@ -49,6 +49,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
               <a
                 className="count"
                 type="submit"
+                href=""
                 onClick={() =>
                   coffee.amount > 1 && handleUpdateAmount('remove', coffee.id)
                 }
@@ -59,6 +60,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
               <a
                 className="count"
                 type="submit"
+                href=""
                 onClick={() => handleUpdateAmount('add', coffee.id)}
               >
                 <S.AddIcon />
