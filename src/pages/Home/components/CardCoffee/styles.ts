@@ -66,15 +66,15 @@ export const CountBox = styled.div`
   padding: 8px;
   background-color: ${({ theme }) => theme.background_count};
   border-radius: 6px;
+  button {
+  }
   .count {
     border: none;
     background: transparent;
+    outline: none;
     cursor: pointer;
-    &:active {
-      border: none;
-      background: transparent;
-      outline: none;
-    }
+    display: block;
+    box-shadow: none;
   }
 
   .countText {

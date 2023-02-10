@@ -46,25 +46,23 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
           </section>
           <section className="countSum">
             <S.CountBox>
-              <a
+              <button
                 className="count"
                 type="submit"
-                href=""
                 onClick={() =>
                   coffee.amount > 1 && handleUpdateAmount('remove', coffee.id)
                 }
               >
                 <S.RemoveIcon />
-              </a>
+              </button>
               <span className="countText">{coffee.amount}</span>
-              <a
+              <button
                 className="count"
                 type="submit"
-                href=""
                 onClick={() => handleUpdateAmount('add', coffee.id)}
               >
                 <S.AddIcon />
-              </a>
+              </button>
             </S.CountBox>
 
             <S.CartBox
