@@ -21,7 +21,7 @@ export function Header() {
       <S.HomelInkNavigate
         accessKey="navigate to home"
         onClick={() => navigate('/')}
-        href=""
+        href="/"
       >
         <S.CoffeeLogo />
       </S.HomelInkNavigate>

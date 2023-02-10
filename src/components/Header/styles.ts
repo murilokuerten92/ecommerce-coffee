@@ -10,7 +10,12 @@ export const Container = styled.header`
 `
 
 export const HomelInkNavigate = styled.a`
+  border: none;
+  background: transparent;
+  outline: none;
   cursor: pointer;
+  display: block;
+  box-shadow: none;
 `
 
 export const UserSection = styled.section`
