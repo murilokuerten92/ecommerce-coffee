@@ -2,6 +2,7 @@ import * as S from './styles'
 import Delivery from '@/assets/images/delivery.png'
 import { useTheme } from 'styled-components'
 import { useLocation } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 
 export function Success() {
   const theme = useTheme()
@@ -11,6 +12,14 @@ export function Success() {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" name="Success" content="Success Screen" />
+        <title>Home</title>
+        <link
+          rel="canonical"
+          href="https://coffee-ecommerce-prime.netlify.app/success"
+        />
+      </Helmet>
       <S.Title>Uhu! Confirmed Order</S.Title>
       <S.SubTitle>
         Now is wants only wait the soon the coffee will arrive until you

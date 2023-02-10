@@ -11,6 +11,7 @@ import { Cart, PaymentMethods } from '@/@types/mockes'
 import { maskCep } from '@/helpers/masks'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '@/providers/CartContext'
+import { Helmet } from 'react-helmet'
 
 const newAddressFormValidationSchema = zod.object({
   zipCode: zod.string().min(7, 'zip-code-required'),
@@ -101,6 +102,14 @@ export function Resume() {
 
   return (
     <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
+      <Helmet>
+        <meta charSet="utf-8" name="Checkout" content="Checkout" />
+        <title>Home</title>
+        <link
+          rel="canonical"
+          href="https://coffee-ecommerce-prime.netlify.app/checkout"
+        />
+      </Helmet>
       <S.PersonalDatas>
         <S.Title>Complet your order</S.Title>
         <S.Card>
