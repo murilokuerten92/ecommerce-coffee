@@ -12,9 +12,9 @@ import { maskCep } from '@/helpers/masks'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '@/providers/CartContext'
 import { Helmet } from 'react-helmet'
-
+// @ts-ignore
 const newAddressFormValidationSchema = zod.object({
-  zipCode: zod.string().min(7, 'zip-code-required'),
+  zipCode: zod.string().min(7, 'zip-code required'),
   street: zod.string().min(5, 'strict required'),
   number: zod.string(),
   complement: zod.string(),
