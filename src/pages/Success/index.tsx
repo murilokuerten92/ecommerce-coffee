@@ -15,7 +15,7 @@ export function Success() {
       <Helmet>
         <meta
           charSet="utf-8"
-          name="Success"
+          name="description"
           content="Simple Screen for show purchases details and verify if correct infos"
         />
         <title>Home</title>

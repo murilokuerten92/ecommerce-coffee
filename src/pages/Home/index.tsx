@@ -16,7 +16,7 @@ export function Home() {
       <Helmet>
         <meta
           charSet="utf-8"
-          name="home"
+          name="description"
           content="Here you check all coffees availables in our site, Enjoy the experience"
         />
         <title>Home</title>
