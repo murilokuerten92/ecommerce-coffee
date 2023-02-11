@@ -17,7 +17,9 @@ export function Home() {
         <meta
           charSet="utf-8"
           name="description"
-          content="Here you check all coffees availables in our site, Enjoy the experience"
+          content="Mary's simple recipe for maple bacon donuts
+           makes a sticky, sweet treat with just a hint
+           of salt that you'll keep coming back for."
         />
         <title>Home</title>
         <link

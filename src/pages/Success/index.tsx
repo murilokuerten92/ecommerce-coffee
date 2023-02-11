@@ -16,7 +16,7 @@ export function Success() {
         <meta
           charSet="utf-8"
           name="description"
-          content="Simple Screen for show purchases details and verify if correct infos"
+          content="A collection of positve thinking, how to change                 life-guides, life changing solutions by free thinking and a positive apprauch. Tested self motivation techniques. "
         />
         <title>Home</title>
         <link

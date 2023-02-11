@@ -106,7 +106,9 @@ export function Resume() {
         <meta
           charSet="utf-8"
           name="description"
-          content="Put your personal datas e check your product added in your cart"
+          content="Author: A.N. Author,
+          Illustrator: P. Picture, Category: Books, Price: $17.99,
+          Length: 784 pages"
         />
         <title>Home</title>
         <link
