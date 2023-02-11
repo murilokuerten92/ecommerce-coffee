@@ -26,14 +26,14 @@ export function Header() {
         <S.CoffeeLogo />
       </S.HomelInkNavigate>
       <S.UserSection>
-        {currentLocation && (
+        {currentLocation ? (
           <S.Location>
             <S.PinLogo />
             <S.LocationText data-testid="location">
               {currentLocation ?? 'Location'}
             </S.LocationText>
           </S.Location>
-        )}
+        ) : null}
         {location.pathname !== '/success' && (
           <S.Cart
             data-testid="cartButton"
