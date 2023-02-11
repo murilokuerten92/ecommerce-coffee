@@ -49,6 +49,8 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
               <button
                 className="count"
                 type="submit"
+                id="remove"
+                aria-label="remove"
                 onClick={() =>
                   coffee.amount > 1 && handleUpdateAmount('remove', coffee.id)
                 }
@@ -59,6 +61,8 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
               <button
                 className="count"
                 type="submit"
+                id="add"
+                aria-label="add"
                 onClick={() => handleUpdateAmount('add', coffee.id)}
               >
                 <S.AddIcon />

@@ -13,7 +13,11 @@ export function Success() {
   return (
     <S.Container>
       <Helmet>
-        <meta charSet="utf-8" name="Success" content="Success Screen" />
+        <meta
+          charSet="utf-8"
+          name="Success"
+          content="Simple Screen for show purchases details and verify if correct infos"
+        />
         <title>Home</title>
         <link
           rel="canonical"

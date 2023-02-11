@@ -103,7 +103,11 @@ export function Resume() {
   return (
     <S.Container onSubmit={handleSubmit(handleCreateNewAddress)}>
       <Helmet>
-        <meta charSet="utf-8" name="Checkout" content="Checkout" />
+        <meta
+          charSet="utf-8"
+          name="checkout"
+          content="Put your personal datas e check your product added in your cart"
+        />
         <title>Home</title>
         <link
           rel="canonical"

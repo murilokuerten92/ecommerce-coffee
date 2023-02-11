@@ -9,7 +9,7 @@ export const Container = styled.header`
   align-items: center;
 `
 
-export const HomelInkNavigate = styled.a`
+export const HomelInkNavigate = styled.button`
   border: none;
   background: transparent;
   outline: none;
