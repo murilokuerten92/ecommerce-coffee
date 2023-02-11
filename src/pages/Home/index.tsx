@@ -14,7 +14,11 @@ export function Home() {
   return (
     <S.Container>
       <Helmet>
-        <meta charSet="utf-8" name="Home" content="All coffees" />
+        <meta
+          charSet="utf-8"
+          name="home"
+          content="Here you check all coffees availables in our site, Enjoy the experience"
+        />
         <title>Home</title>
         <link
           rel="canonical"
