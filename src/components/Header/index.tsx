@@ -10,7 +10,7 @@ export function Header() {
 
   const { items } = useCart()
 
-  const { currentLocation } = useUserLocation()
+  const { currentLocation, permissionStatus } = useUserLocation()
 
   const location = useLocation()
 
@@ -26,14 +26,14 @@ export function Header() {
         <S.CoffeeLogo />
       </S.HomelInkNavigate>
       <S.UserSection>
-        {currentLocation ? (
+        {permissionStatus === 'granted' && (
           <S.Location>
             <S.PinLogo />
             <S.LocationText data-testid="location">
               {currentLocation ?? 'Location'}
             </S.LocationText>
           </S.Location>
-        ) : null}
+        )}
         {location.pathname !== '/success' && (
           <S.Cart
             data-testid="cartButton"
