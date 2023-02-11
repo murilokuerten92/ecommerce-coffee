@@ -49,7 +49,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
               <button
                 className="count"
                 type="submit"
-                id="remove"
+                id={coffee.name}
                 name="remove"
                 role="button"
                 aria-label="remove"
@@ -63,7 +63,7 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
               <button
                 className="count"
                 type="submit"
-                id="add"
+                id={coffee.name}
                 role="button"
                 name="add"
                 aria-label="add"
