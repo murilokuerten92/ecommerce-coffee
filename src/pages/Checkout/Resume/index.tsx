@@ -105,7 +105,7 @@ export function Resume() {
       <Helmet>
         <meta
           charSet="utf-8"
-          name="checkout"
+          name="description"
           content="Put your personal datas e check your product added in your cart"
         />
         <title>Home</title>

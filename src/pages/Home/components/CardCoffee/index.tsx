@@ -50,6 +50,8 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
                 className="count"
                 type="submit"
                 id="remove"
+                name="remove"
+                role="button"
                 aria-label="remove"
                 onClick={() =>
                   coffee.amount > 1 && handleUpdateAmount('remove', coffee.id)
@@ -62,6 +64,8 @@ export function CardCoffee({ ...coffee }: CoffeeType) {
                 className="count"
                 type="submit"
                 id="add"
+                role="button"
+                name="add"
                 aria-label="add"
                 onClick={() => handleUpdateAmount('add', coffee.id)}
               >
