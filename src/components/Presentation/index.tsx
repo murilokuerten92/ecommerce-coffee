@@ -1,6 +1,6 @@
 import * as S from './styles'
 import { faqs } from '@/constants/datas'
-import coffeeLogo from '@/assets/images/logoCoffeeDelivery.png'
+import coffeeLogo from '@/assets/images/mainLogo.webp'
 
 export function Presentation() {
   return (
