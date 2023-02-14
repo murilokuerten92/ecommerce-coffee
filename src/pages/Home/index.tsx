@@ -8,7 +8,7 @@ import { useCoffee } from '@/providers/CoffeeContext'
 import { SkeletonCards } from '@/components/SkeletonCard'
 import { Helmet } from 'react-helmet'
 
-export function Home() {
+export default function Home() {
   const { coffees, isLoading } = useCoffee()
 
   return (

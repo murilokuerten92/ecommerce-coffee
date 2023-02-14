@@ -25,7 +25,7 @@ const newAddressFormValidationSchema = zod.object({
 
 type NewAddressFormData = zod.infer<typeof newAddressFormValidationSchema>
 
-export function Resume() {
+export default function Resume() {
   const [paymentMethodId, setPaymentMethodId] = useState('')
 
   const navigate = useNavigate()
