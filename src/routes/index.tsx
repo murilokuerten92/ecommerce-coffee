@@ -1,8 +1,10 @@
+import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { DefaultLayout } from '@/layouts/DefaultLayout'
-import { Home } from '@/pages/Home'
-import { Resume } from '@/pages/Checkout/Resume'
-import { Success } from '@/pages/Success'
+
+const Success = lazy(() => import('@/pages/Success'))
+const Home = lazy(() => import('@/pages/Home'))
+const Resume = lazy(() => import('@/pages/Checkout/Resume'))
+const DefaultLayout = lazy(() => import('@/layouts/DefaultLayout'))
 
 function CustomRoute({ ...rest }: any) {
   return <DefaultLayout {...rest} />

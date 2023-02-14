@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 
-export function Success() {
+export default function Success() {
   const theme = useTheme()
 
   const location = useLocation()
