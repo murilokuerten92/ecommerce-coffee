@@ -5,16 +5,6 @@ import { Resume } from '@/pages/Checkout/Resume'
 import { Success } from '@/pages/Success'
 
 function CustomRoute({ ...rest }: any) {
-  /* const authenticated = true;
-
-   if (isPrivate && !authenticated) {
-     return <Navigate to="/login" />
-   }
-
-   if (authenticated && rest.path === "/login") {
-     return <Navigate to="/dashboard" />
-   }
- */
   return <DefaultLayout {...rest} />
 }
 
