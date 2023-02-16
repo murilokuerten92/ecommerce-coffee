@@ -1,5 +1,5 @@
 import * as S from './styles'
-import Delivery from '@/assets/images/delivery.png'
+import Delivery from '@/assets/images/delivery.webp'
 import { useTheme } from 'styled-components'
 import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
