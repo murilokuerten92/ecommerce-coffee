@@ -31,7 +31,7 @@ export function CoffeeContextProvider({
     const timer = setTimeout(() => {
       setCoffees(coffeesApi)
       setIsLoading(false)
-    }, 1000)
+    }, 500)
 
     return () => clearTimeout(timer)
   }, [])
