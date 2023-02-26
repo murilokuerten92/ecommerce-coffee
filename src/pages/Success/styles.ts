@@ -11,13 +11,11 @@ export const Container = styled.main`
 `
 
 export const Card = styled.div`
-  border: 1px solid;
+  border: 1px solid transparent;
   border-radius: 6px 36px;
-  border-image: linear-gradient(#dbac2c, #8047f8) 1;
   margin-top: 40px;
-  background-image: linear-gradient(#fafafa, #fafafa),
-    linear-gradient(to right, #dbac2c, #8047f8);
-  background-clip: content-box, border-box;
+  background: linear-gradient(#fafafa, #fafafa) padding-box,
+    linear-gradient(45deg, #dbac2c, #8047f8) border-box;
 `
 
 export const Box = styled.div`
