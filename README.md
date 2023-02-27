@@ -1,5 +1,5 @@
 # store-cart-challenge
-<img width="879"  alt="Ecommerce Site" src="https://user-images.githubusercontent.com/63013634/212879949-51aeaa25-b755-457b-b0c3-09dc3a20c0b0.PNG">
+![coffee_gif](https://user-images.githubusercontent.com/63013634/221689807-1294fba9-336f-4b97-b133-44b5e650c2d1.gif)
 
 > Status: Developing ⚠️
 
